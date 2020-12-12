@@ -2,9 +2,9 @@
 *.class
 
 # Ignore folders
-./server/.idea/*
-./server/.mvn/*
-./server/target/*
+/server/.idea/
+/server/.mvn/
+/server/target/
 
 # Log file
 *.log
