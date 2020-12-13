@@ -1,6 +1,5 @@
 package com.greenboard.investman.model.user;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.greenboard.investman.model.common.Audit;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,9 +9,11 @@ import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "user")
-@Getter @Setter @NoArgsConstructor
 public class User extends Audit {
     @Id
     @Column(name = "user_id")
@@ -24,6 +25,5 @@ public class User extends Audit {
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_info_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIgnore
     private UserInfo userInfo;
 }
