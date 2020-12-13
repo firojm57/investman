@@ -4,17 +4,22 @@ import com.greenboard.investman.model.common.Audit;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "user")
+@Table(name = "user_login")
 public class User extends Audit {
+
+    public User(String userId, String password) {
+        this.userId = userId;
+        this.password = password;
+    }
+
     @Id
     @Column(name = "user_id")
     private String userId;
@@ -22,8 +27,8 @@ public class User extends Audit {
     @Column(name = "password")
     private String password;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_info_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private UserInfo userInfo;
+    @OneToMany(mappedBy = "user",
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private List<UserInfo> userInfo;
 }

@@ -7,10 +7,23 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "user_info")
-@Getter @Setter @NoArgsConstructor
 public class UserInfo extends Audit {
+
+    public UserInfo(String firstName, String middleName, String lastName, String primaryEmail, String primaryMobile, String primaryAddress, User user) {
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.primaryEmail = primaryEmail;
+        this.primaryMobile = primaryMobile;
+        this.primaryAddress = primaryAddress;
+        this.user = user;
+    }
+
     @Id
     @GeneratedValue(generator = "user_info_generator")
     @SequenceGenerator(
@@ -38,4 +51,8 @@ public class UserInfo extends Audit {
 
     @Column(name = "primary_address")
     private String primaryAddress;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

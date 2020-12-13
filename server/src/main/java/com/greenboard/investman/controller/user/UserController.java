@@ -1,22 +1,30 @@
 package com.greenboard.investman.controller.user;
 
 import com.greenboard.investman.service.UserService;
-import com.greenboard.investman.vo.user.LoginResponseVO;
+import com.greenboard.investman.vo.user.StatusVO;
+import com.greenboard.investman.vo.user.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import javax.transaction.Transactional;
 
 @RestController
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @GetMapping("/login/{userId}")
-    public LoginResponseVO getLoginStatus(@PathVariable("userId") String userId,
-                                          @RequestParam("password") String password) {
-        return userService.getLoginStatus(userId, password);
+    @GetMapping("/login")
+    public ResponseEntity<StatusVO> getLoginStatus(@RequestParam("userId") String userId,
+                                                   @RequestParam("password") String password) {
+        return ResponseEntity.ok().body(userService.getLoginStatus(userId, password));
+    }
+
+    @PostMapping("/create")
+    @Transactional
+    public ResponseEntity<StatusVO> createUser(@RequestBody UserVO userVO) {
+        return ResponseEntity.ok().body(userService.createUser(userVO));
     }
 }
