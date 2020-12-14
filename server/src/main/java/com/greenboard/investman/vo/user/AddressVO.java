@@ -9,8 +9,11 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserVO {
-    private String userId;
-    private String password;
-    private UserProfileVO userProfileVO;
+public class AddressVO {
+    private String line1;
+    private String line2;
+    private String city;
+    private String state;
+    private String country;
+    private String postalCode;
 }

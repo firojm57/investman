@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Getter
 @Setter
@@ -27,8 +26,8 @@ public class User extends Audit {
     @Column(name = "password")
     private String password;
 
-    @OneToMany(mappedBy = "user",
+    @OneToOne(mappedBy = "user",
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
-    private List<UserInfo> userInfo;
+    private UserProfile userProfile;
 }

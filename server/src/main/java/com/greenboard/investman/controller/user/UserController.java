@@ -1,7 +1,7 @@
 package com.greenboard.investman.controller.user;
 
 import com.greenboard.investman.service.UserService;
-import com.greenboard.investman.vo.user.StatusVO;
+import com.greenboard.investman.vo.restapi.StatusVO;
 import com.greenboard.investman.vo.user.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
