@@ -1,10 +1,10 @@
-package com.greenboard.investman.service.impl;
+package com.greenboard.investman.service.user.impl;
 
 import com.greenboard.investman.model.user.User;
 import com.greenboard.investman.repository.user.UserRepository;
-import com.greenboard.investman.service.UserService;
+import com.greenboard.investman.service.user.UserService;
 import com.greenboard.investman.util.APIConstants;
-import com.greenboard.investman.util.convertor.UserVOConvertor;
+import com.greenboard.investman.util.convertor.UserModelConvertor;
 import com.greenboard.investman.vo.restapi.StatusVO;
 import com.greenboard.investman.vo.user.UserVO;
 import org.apache.commons.lang3.StringUtils;
@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public StatusVO createUser(UserVO userVO) {
         StatusVO statusVO = new StatusVO();
-        User user = UserVOConvertor.userFromUserVO(userVO);
+        User user = UserModelConvertor.toUserModel(userVO);
         userRepository.save(user);
         statusVO.setStatus(APIConstants.LOGIN_STATUS_SUCCESS);
         return statusVO;

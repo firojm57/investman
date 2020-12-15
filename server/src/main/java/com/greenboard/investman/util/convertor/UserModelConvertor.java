@@ -10,8 +10,8 @@ import com.greenboard.investman.vo.user.UserVO;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class UserVOConvertor {
-    public static User userFromUserVO(UserVO userVO) {
+public class UserModelConvertor {
+    public static User toUserModel(UserVO userVO) {
         User user = new User(userVO.getUserId(), userVO.getPassword());
         UserProfileVO userProfileVO = userVO.getUserProfileVO();
         if (userProfileVO != null) {
@@ -35,5 +35,19 @@ public class UserVOConvertor {
             user.setUserProfile(userProfile);
         }
         return user;
+    }
+
+    public static UserProfileVO toUserProfileVO(UserProfile profile) {
+        UserProfileVO profileVO = null;
+        if (profile != null) {
+            profileVO = new UserProfileVO(profile.getFirstName(), profile.getMiddleName(),
+                    profile.getLastName(), profile.getEmail(), profile.getMobile(),
+                    profile.getAddresses().stream()
+                            .map(address -> new AddressVO(address.getLine1(), address.getLine2(),
+                                    address.getCity(), address.getState(), address.getCountry(),
+                                    address.getPostalCode()))
+                            .collect(Collectors.toList()));
+        }
+        return profileVO;
     }
 }

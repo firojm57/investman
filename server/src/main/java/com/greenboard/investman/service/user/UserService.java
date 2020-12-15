@@ -1,4 +1,4 @@
-package com.greenboard.investman.service;
+package com.greenboard.investman.service.user;
 
 import com.greenboard.investman.vo.restapi.StatusVO;
 import com.greenboard.investman.vo.user.UserVO;
