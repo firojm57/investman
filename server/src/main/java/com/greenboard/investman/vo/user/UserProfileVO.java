@@ -5,15 +5,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserInfoVO {
+public class UserProfileVO {
     private String firstName;
     private String middleName;
     private String lastName;
-    private String primaryEmail;
-    private String primaryMobile;
-    private String primaryAddress;
+    private String email;
+    private String mobile;
+    private List<AddressVO> addressVOS;
 }

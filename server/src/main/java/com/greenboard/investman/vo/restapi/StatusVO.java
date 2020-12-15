@@ -1,4 +1,4 @@
-package com.greenboard.investman.vo.user;
+package com.greenboard.investman.vo.restapi;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
