@@ -3,11 +3,14 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "invest-man-ui": {
+    "investman-ui": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
         }
       },
       "root": "",
@@ -17,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/invest-man-ui",
+            "outputPath": "dist/investman-ui",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -55,7 +58,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -63,13 +65,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
                 }
               ]
             }
@@ -78,18 +80,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "invest-man-ui:build"
+            "browserTarget": "investman-ui:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "invest-man-ui:build:production"
+              "browserTarget": "investman-ui:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "invest-man-ui:build"
+            "browserTarget": "investman-ui:build"
           }
         },
         "test": {
@@ -126,18 +128,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "invest-man-ui:serve"
+            "devServerTarget": "investman-ui:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "invest-man-ui:serve:production"
+              "devServerTarget": "investman-ui:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "invest-man-ui",
+  "defaultProject": "investman-ui",
   "cli": {
     "analytics": false
   }
