@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserLoginModel } from 'src/app/model';
 import { UserService } from 'src/app/service/user/user.service';
 import { apiConstants, constants } from 'src/app/shared/utils/constants';
 
@@ -10,9 +11,8 @@ import { apiConstants, constants } from 'src/app/shared/utils/constants';
 })
 export class LoginComponent implements OnInit {
 
-  userId: string = "";
-  password: string = "";
   loginFailCount: number = 0;
+  userModel: UserLoginModel = new UserLoginModel("", "");
 
   constructor(private userService: UserService,
     private router: Router) { }
@@ -29,9 +29,9 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(event: any) {
-    this.userId = event.target.userId.value;
-    this.password = event.target.userPass.value;
-    this.userService.getLoginStatus(this.userId, this.password).subscribe(statusModel => {
+    this.userModel.userId = event.target.userId.value;
+    this.userModel.password = event.target.userPass.value;
+    this.userService.getLoginStatus(this.userModel).subscribe(statusModel => {
       if(statusModel.status == constants.statusSuccess) {
         this.router.navigate([`/${apiConstants.home}`]);
         this.loginFailCount = 0;
