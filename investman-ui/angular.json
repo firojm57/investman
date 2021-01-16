@@ -32,19 +32,15 @@
               "src/assets/img"
             ],
             "styles": [
-              "src/styles.scss",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/assets/css/sb-admin-2.css"
+              "node_modules/bootstrap/scss/bootstrap.scss",
+              "src/styles.scss"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.bundle.js",
               "node_modules/jquery.easing/jquery.easing.min.js",
-              "src/assets/js/sb-admin-2.min.js",
               "node_modules/chart.js/dist/Chart.min.js",
-              "src/assets/js/demo/chart-area-demo.js",
-              "src/assets/js/demo/chart-pie-demo.js"
             ]
           },
           "configurations": {
