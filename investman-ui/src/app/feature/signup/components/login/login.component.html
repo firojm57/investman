@@ -14,14 +14,14 @@
                 <div class="text-center">
                   <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                 </div>
-                <form class="user" (submit)="onSubmit($event)">
+                <form class="user">
                   <div class="form-group">
-                    <input type="text" class="form-control form-control-user" name="userId"
+                    <input type="text" class="form-control form-control-user" (keyup)="onUserKeyUp($event)"
                       aria-describedby="userId" placeholder="Enter User id..."
                       (focus)="onUserIdFocus()">
                   </div>
                   <div class="form-group">
-                    <input type="password" class="form-control form-control-user" name="userPass"
+                    <input type="password" class="form-control form-control-user" (keyup)="onPassKeyUp($event)"
                       placeholder="Password" (focus)="onPasswordFocus()">
                   </div>
                   <!-- <div class="form-group">
@@ -30,7 +30,7 @@
                       <label class="custom-control-label" for="customCheck">Remember Me</label>
                     </div>
                   </div> -->
-                  <input type="submit" class="btn btn-primary btn-user btn-block" value="Login">
+                  <button (click)="onSubmit()" class="btn btn-primary btn-user btn-block">Login</button>
                   <!-- <hr>
                   <a href="index.html" class="btn btn-google btn-user btn-block">
                     <i class="fab fa-google fa-fw"></i> Login with Google
@@ -41,6 +41,7 @@
                 </form>
                 <div class="text-center mt-2">
                   <p *ngIf="loginFailCount > 0" class="small text-danger">Invalid Credentials</p>
+                  <p *ngIf="loginErrorMessage" class="small text-danger">{{loginErrorMessage}}</p>
                 </div>
                 <hr>
                 <div class="text-center">
