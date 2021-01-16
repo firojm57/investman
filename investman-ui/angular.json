@@ -15,7 +15,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "investman-app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -35,7 +35,7 @@
               "src/styles.scss",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/assets/css/sb-admin-2.min.css"
+              "src/assets/css/sb-admin-2.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
