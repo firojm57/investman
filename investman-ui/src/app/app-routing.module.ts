@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './feature/dashboard/dashboard.component';
-import { LoginComponent } from './feature/signup/components/login/login.component';
+import { LoginComponent } from './feature/user/components/login/login.component';
 import { apiConstants } from './shared/utils/constants';
 
 const routes: Routes = [{

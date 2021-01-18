@@ -16,6 +16,7 @@ $gray-800: #5a5c69 !default;
 $gray-900: #3a3b45 !default;
 $black: #000 !default;
 
+$navy: #004099 !default;
 $blue: #4e73df !default;
 $indigo: #6610f2 !default;
 $purple: #6f42c1 !default;
@@ -30,6 +31,9 @@ $cyan: #36b9cc !default;
 // Custom Colors
 $brand-google: #ea4335 !default;
 $brand-facebook: #3b5998 !default;
+
+// Overriding bootstrap colors
+$primary:       $navy;
 
 // Set Contrast Threshold
 $yiq-contrasted-threshold: 195 !default;
