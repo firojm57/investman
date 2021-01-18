@@ -4,11 +4,11 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './feature/signup/components/login/login.component';
+import { LoginComponent } from './feature/user/components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BasicAuthInterceptor } from './shared/interceptor/basic-auth-interceptor';
 import { DashboardComponent } from './feature/dashboard/dashboard.component';
-import { NavigationComponent } from './feature/common/component/navigation/navigation.component';
+import { NavigationComponent } from './feature/common/components/navigation/navigation.component';
 
 @NgModule({
   declarations: [
