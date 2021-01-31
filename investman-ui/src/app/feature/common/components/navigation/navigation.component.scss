@@ -1,4 +1,22 @@
-.sticky {
-    position: sticky;
-    top: 0;
+@import "variables.scss";
+
+.vertical-nav {
+  width: $sidebar-width;
+  height: 100vh;
+  transition: all 0.2s;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  &.medium-screen {
+    width: $sidebar-width-md;
+  }
+}
+
+.nav-link {
+  &:hover {
+    background: $gray-200;
+  }
+  &.active {
+    background-color: $gray-200;
+    border-left: 4px solid $primary;
+  }
 }
