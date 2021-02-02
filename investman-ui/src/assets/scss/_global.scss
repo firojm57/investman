@@ -23,7 +23,7 @@ a {
     width: calc(100% - $sidebar-width-md);
     margin-left: $sidebar-width-md !important;
   }
-  .vertical-nav {
+  .sidebar {
     width: $sidebar-width-md !important;
   }
   .hide-md {
@@ -31,6 +31,6 @@ a {
   }
   .text-large-center-md {
     text-align: center;
-    font-size: 1.4rem;
+    font-size: $text-large;
   }
 }
