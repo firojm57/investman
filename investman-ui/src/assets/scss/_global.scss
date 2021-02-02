@@ -33,4 +33,12 @@ a {
     text-align: center;
     font-size: $text-large;
   }
+  .img-logo {
+    -webkit-box-shadow: 0 0.3rem 1.3rem rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0.3rem 1.3rem rgba(0, 0, 0, 0.3);
+    width: 60px;
+    height: 60px;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+  }
 }
