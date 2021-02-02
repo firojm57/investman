@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { StatusModel, UserLoginModel } from 'src/app/model';
-import { HttpUtils } from 'src/app/shared/utils/utilities';
-import { apiConstants } from 'src/app/shared/utils/constants';
 import { UrlInformationService } from '../url/url-information.service';
 
 @Injectable({
