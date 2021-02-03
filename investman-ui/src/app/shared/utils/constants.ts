@@ -10,3 +10,7 @@ export const constants = {
     statusSuccess: "success",
     statusFailted: "failed"
 }
+
+export const keys = {
+    defaultLanguage: "defaultLanguage"
+}

@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  imBaseUrl: "http://localhost:8080"
+  imBaseUrl: "http://localhost:8080",
+  defaultLanguage: "en-US",
+  supportedLanguages: ["en-US"]
 };
 
 /*
