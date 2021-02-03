@@ -1,4 +1,6 @@
 export const environment = {
   production: true,
-  imBaseUrl: ""
+  imBaseUrl: "",
+  defaultLanguage: "en-US",
+  supportedLanguages: ["en-US"]
 };

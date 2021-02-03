@@ -15,15 +15,22 @@
 }
 
 .img-logo {
-  -webkit-box-shadow: 0 0.3rem 1.3rem rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0.3rem 1.3rem rgba(0, 0, 0, 0.3);
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
+  -webkit-filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.2))
+    drop-shadow(-2px 2px 0 rgba(0, 0, 0, 0.2))
+    drop-shadow(2px -2px 0 rgba(0, 0, 0, 0.2))
+    drop-shadow(-2px -2px 0 rgba(0, 0, 0, 0.2));
+
+  filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.2))
+    drop-shadow(-2px 2px 0 rgba(0, 0, 0, 0.2))
+    drop-shadow(2px -2px 0 rgba(0, 0, 0, 0.2))
+    drop-shadow(-2px -2px 0 rgba(0, 0, 0, 0.2));
 }
 
 .nav-item {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
   &:hover {
     background: $gray-300;
   }
@@ -32,8 +39,8 @@
     .nav-link {
       color: $gray-100;
     }
-    -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   }
   .nav-link {
     color: $gray-800;
