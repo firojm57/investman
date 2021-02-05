@@ -32,15 +32,15 @@
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   &:hover {
-    background: $gray-300;
+    background: $gray-400;
   }
   &.highlight {
     background-color: $primary;
     .nav-link {
       color: $gray-100;
     }
-    -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.15);
   }
   .nav-link {
     color: $gray-800;

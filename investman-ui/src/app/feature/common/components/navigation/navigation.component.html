@@ -1,5 +1,5 @@
 <!-- Vertical navbar -->
-<div class="sidebar fixed-top bg-white">
+<div class="sidebar fixed-top bg-light">
   <div class="py-4 px-2 mb-4">
     <a [routerLink]="homeUri">
       <div class="media d-flex align-items-center">
@@ -13,40 +13,47 @@
   </div>
 
   <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Menu1</p>
-  <ul class="nav flex-column bg-white mb-0">
+  <ul class="nav flex-column bg-light mb-0">
     <li (click)="onSideMenuClick(menuNames.dashboard)" class="nav-item"
       [ngClass]="selectedMenuName == menuNames.dashboard ? 'highlight' : ''">
       <a href="javascript:void(0)" class="nav-link text-large-center-md">
         <i class="fas fa-columns fa-fw"></i>
-        <span class="hide-md pl-3" translate>sidebar.menu.dashboard</span>
+        <span class="hide-md pl-3" translate>menu.dashboard</span>
+      </a>
+    </li>
+    <li (click)="onSideMenuClick(menuNames.earning)" class="nav-item"
+      [ngClass]="selectedMenuName == menuNames.earning ? 'highlight' : ''">
+      <a href="javascript:void(0)" class="nav-link text-large-center-md">
+        <i class="fas fa-wallet fa-fw"></i>
+        <span class="hide-md pl-3" translate>menu.earning</span>
+      </a>
+    </li>
+    <li (click)="onSideMenuClick(menuNames.saving)" class="nav-item"
+      [ngClass]="selectedMenuName == menuNames.saving ? 'highlight' : ''">
+      <a href="javascript:void(0)" class="nav-link text-large-center-md">
+        <i class="fas fa-heart fa-fw"></i>
+        <span class="hide-md pl-3" translate>menu.saving</span>
+      </a>
+    </li>
+    <li (click)="onSideMenuClick(menuNames.investment)" class="nav-item"
+      [ngClass]="selectedMenuName == menuNames.investment ? 'highlight' : ''">
+      <a href="javascript:void(0)" class="nav-link text-large-center-md">
+        <i class="fas fa-suitcase fa-fw"></i>
+        <span class="hide-md pl-3" translate>menu.investment</span>
       </a>
     </li>
     <li (click)="onSideMenuClick(menuNames.reports)" class="nav-item"
       [ngClass]="selectedMenuName == menuNames.reports ? 'highlight' : ''">
       <a href="javascript:void(0)" class="nav-link text-large-center-md">
         <i class="fas fa-file-contract fa-fw"></i>
-        <span class="hide-md pl-3">Reports</span>
-      </a>
-    </li>
-    <li (click)="onSideMenuClick(menuNames.charts)" class="nav-item"
-      [ngClass]="selectedMenuName == menuNames.charts ? 'highlight' : ''">
-      <a href="javascript:void(0)" class="nav-link text-large-center-md">
-        <i class="fas fa-chart-line fa-fw"></i>
-        <span class="hide-md pl-3">Charts</span>
-      </a>
-    </li>
-    <li (click)="onSideMenuClick(menuNames.tickets)" class="nav-item"
-      [ngClass]="selectedMenuName == menuNames.tickets ? 'highlight' : ''">
-      <a href="javascript:void(0)" class="nav-link text-large-center-md">
-        <i class="fas fa-clipboard-check fa-fw"></i>
-        <span class="hide-md pl-3">Tickets</span>
+        <span class="hide-md pl-3" translate>menu.reports</span>
       </a>
     </li>
   </ul>
 
   <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Menu2</p>
 
-  <ul class="nav flex-column bg-white mb-0">
+  <ul class="nav flex-column bg-light mb-0">
     <li class="nav-item">
       <a href="javascript:void(0)" class="nav-link text-large-center-md">
         <i class="fas fa-chalkboard fa-fw"></i>

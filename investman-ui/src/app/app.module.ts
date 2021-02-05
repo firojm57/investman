@@ -11,13 +11,15 @@ import { DashboardComponent } from './feature/dashboard/dashboard.component';
 import { NavigationComponent } from './feature/common/components/navigation/navigation.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TopbarComponent } from './feature/common/components/topbar/topbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NavigationComponent,
-    DashboardComponent
+    DashboardComponent,
+    TopbarComponent
   ],
   imports: [
     BrowserModule,

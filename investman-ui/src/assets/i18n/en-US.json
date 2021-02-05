@@ -1,3 +1,7 @@
 {
-    "sidebar.menu.dashboard": "Dashboard"
+    "menu.dashboard": "Dashboard",
+    "menu.earning": "Earning",
+    "menu.saving": "Saving",
+    "menu.investment": "Investment",
+    "menu.reports": "Reports"
 }
