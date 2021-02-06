@@ -18,23 +18,20 @@ a {
   }
 }
 
-@media (max-width: 768px) {
-  .content {
-    width: calc(100% - $sidebar-width-md);
-    margin-left: $sidebar-width-md !important;
-  }
-  .sidebar {
-    width: $sidebar-width-md !important;
-  }
-  .hide-md {
-    display: none;
-  }
-  .text-large-center-md {
-    text-align: center;
-    font-size: $text-large;
-  }
-  .img-logo {
-    width: $sidebar-width-md - 1rem;
-    height: $sidebar-width-md - 1.5rem;
-  }
+// Scrollbars
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $scrollbar-thumb-color $scrollbar-track-color;
+}
+
+*::-webkit-scrollbar {
+  width: $scrollbar-width;
+}
+
+*::-webkit-scrollbar-track {
+  background: $scrollbar-track-color;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $scrollbar-thumb-color;
 }
