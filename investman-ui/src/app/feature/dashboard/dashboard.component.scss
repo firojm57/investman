@@ -3,8 +3,12 @@
 .content {
   width: calc(100% - $sidebar-width);
   margin-left: $sidebar-width;
-  transition: all 0.4s;
-  &.fluid {
+  -webkit-transition: all $transition-time;
+  transition: all $transition-time;
+}
+
+@media (max-width: $medium-screen-size) {
+  .content {
     width: calc(100% - $sidebar-width-md);
     margin-left: $sidebar-width-md !important;
   }
