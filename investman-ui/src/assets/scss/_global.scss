@@ -21,17 +21,15 @@ a {
 // Scrollbars
 * {
   scrollbar-width: thin;
-  scrollbar-color: $scrollbar-thumb-color $scrollbar-track-color;
-}
-
-*::-webkit-scrollbar {
-  width: $scrollbar-width;
-}
-
-*::-webkit-scrollbar-track {
-  background: $scrollbar-track-color;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: $scrollbar-thumb-color;
+  scrollbar-color: $scrollbar-thumb-color $scrollbar-track-color !important;
+  &::-webkit-scrollbar {
+    width: $scrollbar-width;
+  }
+  &::-webkit-scrollbar-track {
+    background: $scrollbar-track-color;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $scrollbar-thumb-color !important;
+    border-radius: 0.25rem;
+  }
 }

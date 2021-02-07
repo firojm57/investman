@@ -12,10 +12,11 @@
     height: 2.5rem;
     width: 2.5rem;
     &:hover {
-      background-color: $gray-200;
+      background-color: $gray-300;
     }
     &:active {
       background-color: $primary;
+      color: $gray-300;
     }
   }
   .nav-item {
