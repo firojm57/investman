@@ -8,40 +8,14 @@
   font-size: $text-lg;
 }
 
-.text-gray-100 {
-  color: $gray-100 !important;
+.text-xl {
+  font-size: $text-xl;
 }
 
-.text-gray-200 {
-  color: $gray-200 !important;
-}
-
-.text-gray-300 {
-  color: $gray-300 !important;
-}
-
-.text-gray-400 {
-  color: $gray-400 !important;
-}
-
-.text-gray-500 {
-  color: $gray-500 !important;
-}
-
-.text-gray-600 {
-  color: $gray-600 !important;
-}
-
-.text-gray-700 {
-  color: $gray-700 !important;
-}
-
-.text-gray-800 {
-  color: $gray-800 !important;
-}
-
-.text-gray-900 {
-  color: $gray-900 !important;
+@each $level, $value in $grays {
+  .text-gray-#{$level} {
+    color: $value !important;
+  }
 }
 
 .icon-circle {
