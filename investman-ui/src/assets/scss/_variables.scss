@@ -1,7 +1,4 @@
-// Override Bootstrap default variables here
-// Do not edit any of the files in /vendor/bootstrap/scss/!
-
-// Color Variables
+// Overriding Bootstrap default variables
 // Bootstrap Color Overrides
 
 $white: #fff !default;
@@ -16,7 +13,7 @@ $gray-800: #616161 !default;
 $gray-900: #424242 !default;
 $black: #000 !default;
 
-$navy: #004099 !default;
+$navy: #004282 !default;
 $blue: #4e73df !default;
 $indigo: #6610f2 !default;
 $purple: #6f42c1 !default;
@@ -85,7 +82,7 @@ $scrollbar-width: 0.4rem;
 
 // Transitions
 $transition-collapse: height 0.15s ease !default;
-$transition-time: 0.3s;
+$transition-time: 400ms;
 
 // Dropdowns
 $dropdown-font-size: 0.85rem !default;
