@@ -22,10 +22,10 @@ public class Address {
     @SequenceGenerator(
             name = "address_id_generator",
             sequenceName = "address_id_sequence",
-            initialValue = 1000
+            initialValue = 1
     )
     @Column(name = "address_id", nullable = false)
-    private Long addressId;
+    private long addressId;
 
     private String line1;
     private String line2;

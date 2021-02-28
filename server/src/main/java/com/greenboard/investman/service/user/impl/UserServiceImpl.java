@@ -5,7 +5,7 @@ import com.greenboard.investman.repository.user.UserRepository;
 import com.greenboard.investman.service.user.UserService;
 import com.greenboard.investman.util.APIConstants;
 import com.greenboard.investman.util.convertor.UserModelConvertor;
-import com.greenboard.investman.vo.restapi.StatusVO;
+import com.greenboard.investman.vo.common.StatusVO;
 import com.greenboard.investman.vo.user.UserVO;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
