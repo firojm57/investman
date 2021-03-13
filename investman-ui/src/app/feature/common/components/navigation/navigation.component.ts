@@ -1,5 +1,5 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { apiConstants } from 'src/app/shared/utils/constants';
 import { menuNameConstants } from './navigation.util';
 
 @Component({
@@ -8,13 +8,15 @@ import { menuNameConstants } from './navigation.util';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
-  homeUri: string = "/" + apiConstants.home;
   menuNames = menuNameConstants;
   selectedMenuName: string = menuNameConstants.dashboard;
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   ngOnInit(): void {
+    if(this.location.path()) {
+      this.selectedMenuName = this.location.path().split("/")[1];
+    }
   }
 
   onSideMenuClick(menuName: string) {

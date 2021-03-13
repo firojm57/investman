@@ -1,7 +1,7 @@
 <!-- Vertical navbar -->
 <div class="sidebar fixed-top bg-light">
   <div class="py-4 px-2 mb-4">
-    <a [routerLink]="homeUri">
+    <a [routerLink]="'/'+menuNames.dashboard" (click)="onSideMenuClick(menuNames.dashboard)">
       <div class="media d-flex align-items-center">
         <img loading="lazy" src="/assets/img/imageedit_bg_removed.png" alt="..." width="100" height="90" class="rounded-circle img-logo">
         <div class="media-body hide-md pl-2">
@@ -14,41 +14,41 @@
 
   <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Menu1</p>
   <ul class="nav flex-column mb-0">
-    <li (click)="onSideMenuClick(menuNames.dashboard)" class="nav-item py-1"
+    <li (click)="onSideMenuClick(menuNames.dashboard)" class="nav-item"
       [ngClass]="selectedMenuName == menuNames.dashboard ? 'highlight bg-primary' : ''">
-      <a href="javascript:void(0)" class="nav-link text-large-center-md"
+      <a [routerLink]="'/'+menuNames.dashboard" class="nav-link py-75 text-large-center-md"
         [ngClass]="selectedMenuName == menuNames.dashboard ? 'text-gray-100' : 'text-gray-800'">
         <i class="fas fa-columns fa-fw"></i>
         <span class="hide-md pl-3" translate>menu.dashboard</span>
       </a>
     </li>
-    <li (click)="onSideMenuClick(menuNames.earning)" class="nav-item py-1"
+    <li (click)="onSideMenuClick(menuNames.earning)" class="nav-item"
       [ngClass]="selectedMenuName == menuNames.earning ? 'highlight bg-primary' : ''">
-      <a href="javascript:void(0)" class="nav-link text-large-center-md"
+      <a [routerLink]="'/'+menuNames.earning" class="nav-link py-75 text-large-center-md"
         [ngClass]="selectedMenuName == menuNames.earning ? 'text-gray-100' : 'text-gray-800'">
         <i class="fas fa-wallet fa-fw"></i>
         <span class="hide-md pl-3" translate>menu.earning</span>
       </a>
     </li>
-    <li (click)="onSideMenuClick(menuNames.saving)" class="nav-item py-1"
+    <li (click)="onSideMenuClick(menuNames.saving)" class="nav-item"
       [ngClass]="selectedMenuName == menuNames.saving ? 'highlight bg-primary' : ''">
-      <a href="javascript:void(0)" class="nav-link text-large-center-md"
+      <a [routerLink]="'/'+menuNames.saving" class="nav-link py-75 text-large-center-md"
         [ngClass]="selectedMenuName == menuNames.saving ? 'text-gray-100' : 'text-gray-800'">
         <i class="fas fa-heart fa-fw"></i>
         <span class="hide-md pl-3" translate>menu.saving</span>
       </a>
     </li>
-    <li (click)="onSideMenuClick(menuNames.investment)" class="nav-item py-1"
+    <li (click)="onSideMenuClick(menuNames.investment)" class="nav-item"
       [ngClass]="selectedMenuName == menuNames.investment ? 'highlight bg-primary' : ''">
-      <a href="javascript:void(0)" class="nav-link text-large-center-md"
+      <a [routerLink]="'/'+menuNames.investment" class="nav-link py-75 text-large-center-md"
         [ngClass]="selectedMenuName == menuNames.investment ? 'text-gray-100' : 'text-gray-800'">
         <i class="fas fa-suitcase fa-fw"></i>
         <span class="hide-md pl-3" translate>menu.investment</span>
       </a>
     </li>
-    <li (click)="onSideMenuClick(menuNames.reports)" class="nav-item py-1"
+    <li (click)="onSideMenuClick(menuNames.reports)" class="nav-item"
       [ngClass]="selectedMenuName == menuNames.reports ? 'highlight bg-primary' : ''">
-      <a href="javascript:void(0)" class="nav-link text-large-center-md"
+      <a [routerLink]="'/'+menuNames.reports" class="nav-link py-75 text-large-center-md"
         [ngClass]="selectedMenuName == menuNames.reports ? 'text-gray-100' : 'text-gray-800'">
         <i class="fas fa-file-contract fa-fw"></i>
         <span class="hide-md pl-3" translate>menu.reports</span>
@@ -59,14 +59,14 @@
   <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Menu2</p>
 
   <ul class="nav flex-column mb-0">
-    <li class="nav-item py-1">
-      <a href="javascript:void(0)" class="nav-link text-large-center-md text-gray-800">
+    <li class="nav-item">
+      <a href="javascript:void(0)" class="nav-link py-75 text-large-center-md text-gray-800">
         <i class="fas fa-chalkboard fa-fw"></i>
         <span class="hide-md pl-3">Option 1</span>
       </a>
     </li>
-    <li class="nav-item py-1">
-      <a href="javascript:void(0)" class="nav-link text-large-center-md text-gray-800">
+    <li class="nav-item">
+      <a href="javascript:void(0)" class="nav-link py-75 text-large-center-md text-gray-800">
         <i class="fas fa-chalkboard fa-fw"></i>
         <span class="hide-md pl-3">Option 2</span>
       </a>

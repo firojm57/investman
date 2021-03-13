@@ -1,2 +1,9 @@
 <!-- Landing page goes here -->
-<router-outlet></router-outlet>
+<div id="page-top">
+  <investman-app-navigation></investman-app-navigation>
+  <investman-app-topbar></investman-app-topbar>
+  <!-- Actual content -->
+  <div class="content text-dark bg-light">
+    <router-outlet></router-outlet>
+  </div>
+</div>

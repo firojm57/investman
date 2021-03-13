@@ -8,7 +8,7 @@ export class LocalStorageManager {
         return JSON.parse(localStorage.getItem(key) || "");
     }
 
-    set(key: string, value: any) {
+    set<T>(key: string, value: T) {
         if(value) {
             localStorage.setItem(key, JSON.stringify(value));
         }
