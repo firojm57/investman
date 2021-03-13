@@ -7,19 +7,27 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './feature/user/components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BasicAuthInterceptor } from './shared/interceptor/basic-auth-interceptor';
-import { DashboardComponent } from './feature/dashboard/dashboard.component';
 import { NavigationComponent } from './feature/common/components/navigation/navigation.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TopbarComponent } from './feature/common/components/topbar/topbar.component';
+import { DashboardMainComponent } from './feature/dashboard/components/dashboard-main.component';
+import { InvestmentMainComponent } from './feature/investment/components/investment-main.component';
+import { EarningMainComponent } from './feature/earning/components/earning-main.component';
+import { SavingMainComponent } from './feature/saving/components/saving-main.component';
+import { ReportsMainComponent } from './feature/reports/components/reports-main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NavigationComponent,
-    DashboardComponent,
-    TopbarComponent
+    DashboardMainComponent,
+    TopbarComponent,
+    InvestmentMainComponent,
+    EarningMainComponent,
+    SavingMainComponent,
+    ReportsMainComponent
   ],
   imports: [
     BrowserModule,
