@@ -1,180 +1,44 @@
-<!-- Topbar -->
-<div class="sticky-top shadow-sm">
-    <nav class="navbar navbar-expand navbar-light bg-white topbar">
-    
-        <!-- Sidebar Toggle (Topbar) -->
-        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-          <i class="fa fa-bars"></i>
-        </button>
-        <!-- Topbar Search -->
-        <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-          <div class="input-group">
-            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-              <button class="btn btn-primary" type="button">
-                <i class="fas fa-search fa-fw text-lg"></i>
-              </button>
+<header class="sticky top-0">
+  <div class="px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center h-20 -mb-px">
+      <div class="ml-auto flex items-center">
+        <div class="relative inline-flex ml-3">
+          <div class="w-14 h-7 flex items-center bg-gray-300 dark:bg-gray-600 rounded-full p-1" (click)="onModeChange()">
+            <div class="flex items-center justify-center bg-gray-100 dark:bg-primary-500 w-6 h-6 rounded-full shadow-md"
+              [ngClass]="constants.dark == appMode ? 'ml-auto-animate': ''">
             </div>
           </div>
-        </form> -->
-    
-        <!-- Topbar Navbar -->
-        <ul class="navbar-nav ml-auto">
-    
-          <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-          <!-- <li class="nav-item dropdown no-arrow d-sm-none">
-            <a class="nav-link d-flex align-items-center py-0 px-2 dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-search fa-fw text-lg"></i>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-              <form class="form-inline mr-auto w-100 navbar-search">
-                <div class="input-group">
-                  <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                  <div class="input-group-append">
-                    <button class="btn btn-primary" type="button">
-                      <i class="fas fa-search fa-fw text-lg"></i>
-                    </button>
-                  </div>
-                </div>
-              </form>
+        </div>
+
+        <hr class="w-px h-6 bg-gray-400 mx-3">
+        <div class="relative inline-flex">
+          <button class="inline-flex justify-center items-center group"
+            aria-haspopup="true" aria-expanded="false">
+            <img class="w-8 h-8 rounded-full"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAAAlC+aJAAAD/ElEQVR4Ae2axXorRxCFq+by3VyT2NkENTecrC4zMz5A3sIw3mUXfoLQNsywCTOzMSiIhWZ7ZrpSU25NmGFGX/p8UneV8Pzq023E63edg3aWBVHIABgAA2AADIABMAAGwAAYAANw9VU39HTbbQzgurNbNvdv2zKQ6LHbEqBYfAsBerrz27b0b98mGO0FUG+MLi42AJFrdr9je//OHYPJhN1Om7hQehuImCEYAZOJ/M4dA7t2DqaSdnsAFEtvE0+BeQwmaVLJ/O5dA3v2CEbMASqVjzxvQawHEAKCXLJSCXvvnoF9+5x0yo4vgFJe+dv3CMQ4sAQkkCwIYipx2b59gwcOCEYMAeQselPME0tAQNTaGNJzqA4eHDx4yMmk7dgBlMvvKd+TJcBl51oUVrpIJ/OHDg0ePuxkMnaMAFxvfrL6MZBsgnA/i3QlM2kezKTzR444R486WcGIGkBUKLzV8qgllUzCxQPKLuFeWuJFOHp08NhxJ5u1owcold5CvY918kH6oAmF4UCo78dcxj5xwuFLLmdHCTC/0KjVRmUF9L5FSZNuxDFJp4VIROHj2f3Jk0OnTju9ghEBAKtQfDtcAVG4CsGgG11ryp88PpfdyAxnzg719m6MAqDwpvgKP2nkWawShkAo+QlZfunxuWz+7Fnn7PmhC/4Yxkr4h6SIFmZ5EPlKEciVS1KuxyVXvk++y6PyPd/3lL64ynU9Hj3X95Y8d8lnGG/F1wsrp8H6DwHSqesBqJVsZCJEUhRwoGUBIykgkHv0GMzyYFkTIrmbrX+zsPJFz/oKRP8dQCp5HeiDkidFSodFWEhnXbWSREIgt+IyE+IifDFjPb+04ssINvHaNR2dnRcF7nTukaVDjhZpKtAi7Tx8+IL/RWXprpq6dwm/d/+frkA6dR0p0oenUmISpBNJQlQAoS+Ss4Bj1p2oTD87701AqIgArkcLKYi5nJhIIsGAAAmxFSENB7OL46Xa07NL4yCKEmDVynXdnbYEwyImQFRilIH0kW9ZchgBWgA+TM+PFSaf4BFE0QMkE1ezRUAdaH2qy74Ux0ra4NqcHv2q9PjU7Gi8vp1OZ663GACAlAq//xEICb5lcd+YHvlo5PaPxu7Q7uMDYFkrE91XinVAxiC9AgIRDI2p4Xc+vvm9T29tzIzAzxV5hHq6L1+1ar18/CTBRzn1iYHqzeHRiYfqzc8gVOwA5ADFIOcKEclXgMCqNYdHxh6sNbT1WANkUtcSkYW4nKdK7dOR0Qeq9U9BFHeAjo6LV6/pANFk9dOR4ftD620BIN/AIVYqnwyP3F+taevtBLB69fpXXrmxItajkvl/IQNgAAyAATAABsAAGAADYAD+vwDfAQSHHlNp5b1mAAAAAElFTkSuQmCC"
+              width="32" height="32" alt="User">
+            <div class="flex items-center truncate">
+              <span class="truncate ml-2 text-sm font-medium group-hover:text-gray-800">Acme Inc.</span>
             </div>
-          </li> -->
-    
-          <!-- Nav Item - Alerts -->
-          <li class="nav-item dropdown no-arrow mx-1">
-            <a class="nav-link d-flex align-items-center py-0 px-2 dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-bell fa-fw text-lg"></i>
-              <!-- Counter - Alerts -->
-              <span class="badge badge-danger badge-counter">3+</span>
-            </a>
-            <!-- Dropdown - Alerts -->
-            <div class="dropdown-list p-0 border-0 dropdown-menu dropdown-menu-right
-              shadow animated--grow-in" aria-labelledby="alertsDropdown">
-              <h6 class="dropdown-header border border-primary py-3 bg-primary text-gray-100">
-                Alerts Center
-              </h6>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <div class="mr-3">
-                  <div class="icon-circle bg-primary">
-                    <i class="fas fa-file-alt text-white"></i>
-                  </div>
-                </div>
-                <div>
-                  <div class="small text-gray-500">December 12, 2019</div>
-                  <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                </div>
-              </a>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <div class="mr-3">
-                  <div class="icon-circle bg-success">
-                    <i class="fas fa-donate text-white"></i>
-                  </div>
-                </div>
-                <div>
-                  <div class="small text-gray-500">December 7, 2019</div>
-                  $290.29 has been deposited into your account!
-                </div>
-              </a>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <div class="mr-3">
-                  <div class="icon-circle bg-warning">
-                    <i class="fas fa-exclamation-triangle text-white"></i>
-                  </div>
-                </div>
-                <div>
-                  <div class="small text-gray-500">December 2, 2019</div>
-                  Spending Alert: We've noticed unusually high spending for your account.
-                </div>
-              </a>
-              <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+          </button>
+          <div
+            class="origin-top-right z-10 absolute top-full right-0 min-w-44 bg-white border border-gray-200 py-1.5 rounded shadow-lg overflow-hidden mt-1"
+            style="display: none;">
+            <div>
+              <div class="pt-0.5 pb-2 px-3 mb-1 border-b border-gray-200">
+                <div class="font-medium text-gray-800">Acme Inc.</div>
+                <div class="text-xs text-gray-500 italic">Administrator</div>
+              </div>
+              <ul>
+                <li><a class="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3"
+                    href="/">Settings</a></li>
+                <li><a class="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3"
+                    href="/">Sign Out</a></li>
+              </ul>
             </div>
-          </li>
-    
-          <!-- Nav Item - Messages -->
-          <li class="nav-item dropdown no-arrow mx-1">
-            <a class="nav-link d-flex align-items-center py-0 px-2 dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-envelope fa-fw text-lg"></i>
-              <!-- Counter - Messages -->
-              <span class="badge badge-danger badge-counter">7</span>
-            </a>
-            <!-- Dropdown - Messages -->
-            <div class="dropdown-list p-0 border-0 dropdown-menu dropdown-menu-right
-              shadow animated--grow-in" aria-labelledby="messagesDropdown">
-              <h6 class="dropdown-header border border-primary py-3 bg-primary text-gray-100">
-                Message Center
-              </h6>
-              <a class="dropdown-item py-2 d-flex align-items-center" href="#">
-                <div class="dropdown-list-image mr-3">
-                  <img class="rounded-circle" src="" alt="">
-                </div>
-                <div class="font-weight-bold">
-                  <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
-                  <div class="small text-gray-500">Emily Fowler · 58m</div>
-                </div>
-              </a>
-              <a class="dropdown-item py-2 d-flex align-items-center" href="#">
-                <div class="dropdown-list-image mr-3">
-                  <img class="rounded-circle" src="" alt="">
-                </div>
-                <div>
-                  <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
-                  <div class="small text-gray-500">Jae Chun · 1d</div>
-                </div>
-              </a>
-              <a class="dropdown-item py-2 d-flex align-items-center" href="#">
-                <div class="dropdown-list-image mr-3">
-                  <img class="rounded-circle" src="" alt="">
-                </div>
-                <div>
-                  <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
-                  <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                </div>
-              </a>
-              <a class="dropdown-item py-2 d-flex align-items-center" href="#">
-                <div class="dropdown-list-image mr-3">
-                  <img class="rounded-circle" src="" alt="">
-                </div>
-                <div>
-                  <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
-                  <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                </div>
-              </a>
-              <a class="dropdown-item py-2 text-center small text-gray-500" href="#">Read More Messages</a>
-            </div>
-          </li>
-    
-          <div class="topbar-divider w-0 mx-3 my-auto d-none d-sm-block"></div>
-    
-          <!-- Nav Item - User Information -->
-          <li class="nav-item dropdown no-arrow">
-            <a class="nav-link d-flex align-items-center py-0 px-2 dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-              <img class="img-profile rounded-circle" src="">
-            </a>
-            <!-- Dropdown - User Information -->
-            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-              <a class="dropdown-item py-2" href="#">
-                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                Profile
-              </a>
-              <a class="dropdown-item py-2" href="#">
-                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                Settings
-              </a>
-              <a class="dropdown-item py-2" href="#">
-                <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                Activity Log
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item py-2" href="#" data-toggle="modal" data-target="#logoutModal">
-                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                Logout
-              </a>
-            </div>
-          </li>
-    
-        </ul>
-    
-      </nav>
-</div>
-  <!-- End of Topbar -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

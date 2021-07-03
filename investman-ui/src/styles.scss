@@ -1,19 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-// Custom variables (Overrides Default Bootstrap Variables)
-@import "assets/scss/variables.scss";
-
-// Import bootstrap
-@import "node_modules/bootstrap/scss/bootstrap.scss";
-
-// Custom mixins and components
-@import "assets/scss/mixins.scss";
-@import "assets/scss/global.scss";
-@import "assets/scss/utilities.scss";
-
-// Custom Components
-@import "assets/scss/buttons.scss";
-@import "assets/scss/cards.scss";
-@import "assets/scss/charts.scss";
-@import "assets/scss/login.scss";
-@import "assets/scss/error.scss";
-@import "assets/scss/footer.scss";
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";

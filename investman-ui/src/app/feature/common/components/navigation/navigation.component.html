@@ -1,76 +1,69 @@
 <!-- Vertical navbar -->
-<div class="sidebar fixed-top bg-light">
-  <div class="py-4 px-2 mb-4">
-    <a [routerLink]="'/'+menuNames.dashboard" (click)="onSideMenuClick(menuNames.dashboard)">
-      <div class="media d-flex align-items-center">
-        <img loading="lazy" src="/assets/img/imageedit_bg_removed.png" alt="..." width="100" height="90" class="rounded-circle img-logo">
-        <div class="media-body hide-md pl-2">
-          <h4 class="m-0 text-dark">Investman</h4>
-          <p class="small lead text-muted mb-0">Manage Investments</p>
-        </div>
+<div id="sidebar" class="md:w-56 w-14 min-h-screen shadow-xl">
+  <!-- sidebar -->
+  <div class="flex items-center justify-center h-20">
+    <span class="md:inline hidden text-2xl font-bold text-primary-600">
+      Investman
+    </span>
+    <div class="flex items-center justify-center md:hidden bg-primary-200 w-full h-full">
+      <span class="text-3xl font-bold text-primary-600">I</span>
+    </div>
+  </div>
+  <nav class="font-semibo-ld text-gray-300 dark:text-gray-700">
+    <a class="block pl-4 py-3 rounded-sm" (click)="onSideMenuClick(menuNames.dashboard)"
+      [ngClass]="selectedMenuName == menuNames.dashboard ? '' : 'hover:text-gray-800 dark:hover:text-gray-400'"
+      [routerLink]="'/'+menuNames.dashboard">
+      <div class="flex items-center"
+       [ngClass]="selectedMenuName == menuNames.dashboard ? 'border-r-4 border-primary-600' : ''">
+        <i class="bx bxs-dashboard text-2xl bx-lg"
+          [ngClass]="selectedMenuName == menuNames.dashboard ? 'text-primary-600': ''"></i>
+        <span class="px-4 md:inline hidden"
+          [ngClass]="selectedMenuName == menuNames.dashboard ? 'text-gray-700 dark:text-gray-300 dark:border-primary-300': ''" translate>menu.dashboard</span>
       </div>
     </a>
-  </div>
-
-  <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Menu1</p>
-  <ul class="nav flex-column mb-0">
-    <li (click)="onSideMenuClick(menuNames.dashboard)" class="nav-item"
-      [ngClass]="selectedMenuName == menuNames.dashboard ? 'highlight bg-primary' : ''">
-      <a [routerLink]="'/'+menuNames.dashboard" class="nav-link py-75 text-large-center-md"
-        [ngClass]="selectedMenuName == menuNames.dashboard ? 'text-gray-100' : 'text-gray-800'">
-        <i class="fas fa-columns fa-fw"></i>
-        <span class="hide-md pl-3" translate>menu.dashboard</span>
-      </a>
-    </li>
-    <li (click)="onSideMenuClick(menuNames.earning)" class="nav-item"
-      [ngClass]="selectedMenuName == menuNames.earning ? 'highlight bg-primary' : ''">
-      <a [routerLink]="'/'+menuNames.earning" class="nav-link py-75 text-large-center-md"
-        [ngClass]="selectedMenuName == menuNames.earning ? 'text-gray-100' : 'text-gray-800'">
-        <i class="fas fa-wallet fa-fw"></i>
-        <span class="hide-md pl-3" translate>menu.earning</span>
-      </a>
-    </li>
-    <li (click)="onSideMenuClick(menuNames.saving)" class="nav-item"
-      [ngClass]="selectedMenuName == menuNames.saving ? 'highlight bg-primary' : ''">
-      <a [routerLink]="'/'+menuNames.saving" class="nav-link py-75 text-large-center-md"
-        [ngClass]="selectedMenuName == menuNames.saving ? 'text-gray-100' : 'text-gray-800'">
-        <i class="fas fa-heart fa-fw"></i>
-        <span class="hide-md pl-3" translate>menu.saving</span>
-      </a>
-    </li>
-    <li (click)="onSideMenuClick(menuNames.investment)" class="nav-item"
-      [ngClass]="selectedMenuName == menuNames.investment ? 'highlight bg-primary' : ''">
-      <a [routerLink]="'/'+menuNames.investment" class="nav-link py-75 text-large-center-md"
-        [ngClass]="selectedMenuName == menuNames.investment ? 'text-gray-100' : 'text-gray-800'">
-        <i class="fas fa-suitcase fa-fw"></i>
-        <span class="hide-md pl-3" translate>menu.investment</span>
-      </a>
-    </li>
-    <li (click)="onSideMenuClick(menuNames.reports)" class="nav-item"
-      [ngClass]="selectedMenuName == menuNames.reports ? 'highlight bg-primary' : ''">
-      <a [routerLink]="'/'+menuNames.reports" class="nav-link py-75 text-large-center-md"
-        [ngClass]="selectedMenuName == menuNames.reports ? 'text-gray-100' : 'text-gray-800'">
-        <i class="fas fa-file-contract fa-fw"></i>
-        <span class="hide-md pl-3" translate>menu.reports</span>
-      </a>
-    </li>
-  </ul>
-
-  <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Menu2</p>
-
-  <ul class="nav flex-column mb-0">
-    <li class="nav-item">
-      <a href="javascript:void(0)" class="nav-link py-75 text-large-center-md text-gray-800">
-        <i class="fas fa-chalkboard fa-fw"></i>
-        <span class="hide-md pl-3">Option 1</span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a href="javascript:void(0)" class="nav-link py-75 text-large-center-md text-gray-800">
-        <i class="fas fa-chalkboard fa-fw"></i>
-        <span class="hide-md pl-3">Option 2</span>
-      </a>
-    </li>
-  </ul>
+    <a class="block pl-4 py-3 rounded-sm" (click)="onSideMenuClick(menuNames.earning)"
+      [ngClass]="selectedMenuName == menuNames.earning ? '' : 'hover:text-gray-800 dark:hover:text-gray-400'"
+      [routerLink]="'/'+menuNames.earning">
+      <div class="flex items-center"
+       [ngClass]="selectedMenuName == menuNames.earning ? 'border-r-4 border-primary-600' : ''">
+        <i class="bx bxs-wallet text-2xl bx-lg"
+          [ngClass]="selectedMenuName == menuNames.earning ? 'text-primary-600': ''"></i>
+        <span class="px-4 md:inline hidden"
+          [ngClass]="selectedMenuName == menuNames.earning ? 'text-gray-700 dark:text-gray-300 dark:border-primary-300': ''" translate>menu.earning</span>
+      </div>
+    </a>
+    <a class="block pl-4 py-3 rounded-sm" (click)="onSideMenuClick(menuNames.saving)"
+      [ngClass]="selectedMenuName == menuNames.saving ? '' : 'hover:text-gray-800 dark:hover:text-gray-400'"
+      [routerLink]="'/'+menuNames.saving">
+      <div class="flex items-center"
+       [ngClass]="selectedMenuName == menuNames.saving ? 'border-r-4 border-primary-600' : ''">
+        <i class="bx bxs-heart text-2xl bx-lg"
+          [ngClass]="selectedMenuName == menuNames.saving ? 'text-primary-600': ''"></i>
+        <span class="px-4 md:inline hidden"
+          [ngClass]="selectedMenuName == menuNames.saving ? 'text-gray-700 dark:text-gray-300 dark:border-primary-300': ''" translate>menu.saving</span>
+      </div>
+    </a>
+    <a class="block pl-4 py-3 rounded-sm" (click)="onSideMenuClick(menuNames.investment)"
+      [ngClass]="selectedMenuName == menuNames.investment ? '' : 'hover:text-gray-800 dark:hover:text-gray-400'"
+      [routerLink]="'/'+menuNames.investment">
+      <div class="flex items-center"
+       [ngClass]="selectedMenuName == menuNames.investment ? 'border-r-4 border-primary-600' : ''">
+        <i class="bx bxs-briefcase-alt text-2xl bx-lg"
+          [ngClass]="selectedMenuName == menuNames.investment ? 'text-primary-600': ''"></i>
+        <span class="px-4 md:inline hidden"
+          [ngClass]="selectedMenuName == menuNames.investment ? 'text-gray-700 dark:text-gray-300 dark:border-primary-300': ''" translate>menu.investment</span>
+      </div>
+    </a>
+    <a class="block pl-4 py-3 rounded-sm" (click)="onSideMenuClick(menuNames.reports)"
+      [ngClass]="selectedMenuName == menuNames.reports ? '' : 'hover:text-gray-800 dark:hover:text-gray-400'"
+      [routerLink]="'/'+menuNames.reports">
+      <div class="flex items-center"
+       [ngClass]="selectedMenuName == menuNames.reports ? 'border-r-4 border-primary-600' : ''">
+        <i class="bx bxs-report text-2xl bx-lg"
+          [ngClass]="selectedMenuName == menuNames.reports ? 'text-primary-600': ''"></i>
+        <span class="px-4 md:inline hidden"
+          [ngClass]="selectedMenuName == menuNames.reports ? 'text-gray-700 dark:text-gray-300 dark:border-primary-300': ''" translate>menu.reports</span>
+      </div>
+    </a>
+  </nav>
 </div>
-<!-- End vertical navbar -->
