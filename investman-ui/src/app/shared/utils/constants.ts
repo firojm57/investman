@@ -9,8 +9,8 @@ export const apiConstants = {
 export const constants = {
     statusSuccess: "success",
     statusFailted: "failed",
-    dark: "dark",
-    light: "light"
+    dark: "theme-dark",
+    light: "theme-light"
 }
 
 export const keys = {

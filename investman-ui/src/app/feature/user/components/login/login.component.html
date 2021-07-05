@@ -1,60 +1,41 @@
-<div class="container">
-  <!-- Outer Row -->
-  <div class="row justify-content-center">
-    <div class="col-xl-10 col-lg-12 col-md-9">
-      <div class="card o-hidden border-0 shadow-lg my-5">
-        <div class="card-body p-0">
-          <!-- Nested Row within Card Body -->
-          <div class="row">
-            <div class="col-lg-6 verticle-center">
-              <img class="img-fluid px-3 ml-3 mt-3 mb-3" src="/assets/img/login/data_80ws.svg" alt="">
-            </div>
-            <div class="col-lg-6">
-              <div class="p-5">
-                <div class="text-center">
-                  <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
-                </div>
-                <form class="user">
-                  <div class="form-group">
-                    <input type="text" class="form-control form-control-user" (keyup)="onUserKeyUp($event)"
-                      aria-describedby="userId" placeholder="Enter User id..."
-                      (focus)="onUserIdFocus()">
-                  </div>
-                  <div class="form-group">
-                    <input type="password" class="form-control form-control-user" (keyup)="onPassKeyUp($event)"
-                      placeholder="Password" (focus)="onPasswordFocus()">
-                  </div>
-                  <!-- <div class="form-group">
-                    <div class="custom-control custom-checkbox small">
-                      <input type="checkbox" class="custom-control-input" name="customCheck">
-                      <label class="custom-control-label" for="customCheck">Remember Me</label>
-                    </div>
-                  </div> -->
-                  <button (click)="onSubmit()" class="btn btn-primary btn-user btn-block">Login</button>
-                  <!-- <hr>
-                  <a href="index.html" class="btn btn-google btn-user btn-block">
-                    <i class="fab fa-google fa-fw"></i> Login with Google
-                  </a>
-                  <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                    <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                  </a> -->
-                </form>
-                <div class="text-center mt-2">
-                  <p *ngIf="loginFailCount > 0" class="small text-danger">Invalid Credentials</p>
-                  <p *ngIf="loginErrorMessage" class="small text-danger">{{loginErrorMessage}}</p>
-                </div>
-                <hr>
-                <div class="text-center">
-                  <a class="small" href="javascript:void(0)">Forgot Password?</a>
-                </div>
-                <div class="text-center">
-                  <a class="small" href="javascript:void(0)">Create an Account!</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<section class="flex max-h-full">
+  <div class="w-96 p-7 space-y-5 hidden md:block">
+    <img src="./assets/img/login/growth_8mqx.svg" alt="reader">
   </div>
-</div>
+  <main class="flex-auto space-y-7 p-2">
+    <div class="flex items-center justify-center p-5">
+      <h4 class="text-3xl font-black text-black">
+        Log in
+      </h4>
+    </div>
+
+    <form action="#" class="space-y-4">
+      <section class="flex flex-col items-center justify-center">
+        <div class="relative mt-1 w-80">
+          <i class='absolute top-0 m-3 bx bxs-user'></i>
+          <input type="email" id="emailInp"
+            class="p-4 h-10 pl-10 flex-1 rounded w-full text-sm focus:outline-none border border-gray-200 focus:border-red-400 font-light"
+            placeholder="email address">
+        </div>
+
+        <div class="relative mt-1 w-80 mb-2">
+          <i class='absolute top-0.5 m-3 bx bxs-key'></i>
+          <input type="password" id="passwordInp"
+            class="p-4 h-10 pl-10 flex-1 rounded w-full text-sm focus:outline-none border border-gray-200 focus:border-red-400 font-light"
+            placeholder="password">
+        </div>
+
+        <button
+          class="focus:outline-none bg-red-400 focus:bg-red-500 focus:ring focus:ring-red-200 w-80 h-9 text-white rounded">Log
+          in</button>
+      </section>
+    </form>
+
+    <section class="flex flex-col items-center justify-center space-y-4">
+      <div class="sign_up_link space-x-1">
+        <span class="text-sm font-light">Don't have an account?</span> <a
+          class="text-red-500 hover:text-red-600 text-sm font-light hover:underline" href="#">Sign up</a>
+      </div>
+    </section>
+  </main>
+</section>

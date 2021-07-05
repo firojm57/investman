@@ -1,13 +1,10 @@
 <header class="sticky top-0">
   <div class="px-4 sm:px-6 lg:px-8">
     <div class="flex items-center h-20 -mb-px">
-      <div class="ml-auto flex items-center">
-        <div class="relative inline-flex ml-3">
-          <div class="w-14 h-7 flex items-center bg-gray-300 dark:bg-gray-600 rounded-full p-1" (click)="onModeChange()">
-            <div class="flex items-center justify-center bg-gray-100 dark:bg-primary-500 w-6 h-6 rounded-full shadow-md"
-              [ngClass]="constants.dark == appMode ? 'ml-auto-animate': ''">
-            </div>
-          </div>
+      <div class="ml-auto flex items-center justify-center">
+        <div class="relative inline-flex item ml-3">
+          <i *ngIf="constants.light == appMode" class='text-default text-3xl bx bx-moon' (click)="onThemeChange()"></i>
+          <i *ngIf="constants.dark == appMode" class='text-yellow-200 text-3xl bx bxs-sun' (click)="onThemeChange()"></i>
         </div>
 
         <hr class="w-px h-6 bg-gray-400 mx-3">

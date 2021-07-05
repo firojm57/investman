@@ -1,5 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+.theme-light {
+    --primary: #0284C7;
+    --text-default: #27272A;
+    --text-secondary: #A1A1AA;
+    --bg-default: #ffffff;
+    --bg-secondary: #F4F4F5;
+}
+
+.theme-dark {
+    --primary: #0284C7;
+    --text-default: #A1A1AA;
+    --text-secondary: #3F3F46;
+    --bg-default: #18181B;
+    --bg-secondary: #27272A;
+}
+
+.theme-transition {
+    transition: background-color .25s;
+}
