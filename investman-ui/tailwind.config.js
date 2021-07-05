@@ -10,7 +10,23 @@ module.exports = {
   },
   darkMode: 'class', // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      textColor: {
+        primary: 'var(--primary)',
+        default: 'var(--text-default)',
+        secondary: 'var(--text-secondary)',
+      },
+      backgroundColor: {
+        primary: 'var(--primary)',
+        default: 'var(--bg-default)',
+        secondary: 'var(--bg-secondary)',
+      },
+      borderColor: {
+        primary: 'var(--primary)',
+        default: 'var(--bg-default)',
+        secondary: 'var(--bg-secondary)',
+      }
+    },
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
@@ -23,12 +39,6 @@ module.exports = {
       blue: colors.indigo,
       cyan: colors.cyan,
       purple: colors.purple,
-
-      primary: colors.sky,
-      secondary: colors.yellow,
-      neutral: colors.gray,
-      white: '#fff',
-      black: '#000',
     },
     fontFamily: {
       sans: [

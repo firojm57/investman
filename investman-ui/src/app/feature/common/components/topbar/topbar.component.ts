@@ -15,12 +15,14 @@ export class TopbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onModeChange() {
+  onThemeChange() {
     if(this.appMode == this.constants.dark) {
       this.appMode = this.constants.light;
       document.body.classList.remove(this.constants.dark);
+      document.body.classList.add(this.constants.light);
     } else {
       this.appMode = this.constants.dark;
+      document.body.classList.remove(this.constants.light);
       document.body.classList.add(this.constants.dark);
     }
   }
