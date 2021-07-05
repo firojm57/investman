@@ -14,11 +14,13 @@ module.exports = {
         primary: 'var(--primary)',
         default: 'var(--bg-default)',
         secondary: 'var(--bg-secondary)',
+        "secondary-soft": 'var(--bg-secondary-soft)',
       },
       borderColor: {
         primary: 'var(--primary)',
         default: 'var(--bg-default)',
         secondary: 'var(--bg-secondary)',
+        "secondary-soft": 'var(--bg-secondary-soft)',
       }
     },
     colors: {
@@ -31,8 +33,10 @@ module.exports = {
       green: colors.emerald,
       teal: colors.teal,
       blue: colors.indigo,
-      cyan: colors.cyan,
+      sky: colors.sky,
       purple: colors.purple,
+      white: '#ffffff',
+      black: '#000000'
     },
     fontFamily: {
       sans: [

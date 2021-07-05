@@ -16,14 +16,14 @@ export class TopbarComponent implements OnInit {
   }
 
   onThemeChange() {
-    if(this.appMode == this.constants.dark) {
+    if(this.appMode == this.constants.dark || this.appMode == this.constants.sysDark) {
       this.appMode = this.constants.light;
-      document.body.classList.remove(this.constants.dark);
+      document.body.classList.remove(this.constants.dark, this.constants.sysDark);
       document.body.classList.add(this.constants.light);
     } else {
       this.appMode = this.constants.dark;
       document.body.classList.remove(this.constants.light);
-      document.body.classList.add(this.constants.dark);
+      document.body.classList.add(this.constants.dark, this.constants.sysDark);
     }
   }
 

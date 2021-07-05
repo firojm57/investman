@@ -12,6 +12,8 @@ import { apiConstants, constants } from 'src/app/shared/utils/constants';
 export class LoginComponent implements OnInit {
   loginFailCount: number = 0;
   loginErrorMessage: string = "";
+  appMode: string = constants.light;
+  constants = constants;
   userModel: UserLoginModel = new UserLoginModel("", "");
 
   constructor(private userService: UserService,
@@ -34,6 +36,18 @@ export class LoginComponent implements OnInit {
 
   onPassKeyUp(event: any) {
     this.userModel.password = event.target.value
+  }
+
+  onThemeChange() {
+    if(this.appMode == this.constants.dark || this.appMode == this.constants.sysDark) {
+      this.appMode = this.constants.light;
+      document.body.classList.remove(this.constants.dark, this.constants.sysDark);
+      document.body.classList.add(this.constants.light);
+    } else {
+      this.appMode = this.constants.dark;
+      document.body.classList.remove(this.constants.light);
+      document.body.classList.add(this.constants.dark, this.constants.sysDark);
+    }
   }
 
   onSubmit() {

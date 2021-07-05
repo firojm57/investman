@@ -10,6 +10,7 @@ export const constants = {
     statusSuccess: "success",
     statusFailted: "failed",
     dark: "theme-dark",
+    sysDark: "dark",
     light: "theme-light"
 }
 
