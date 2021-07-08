@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { menuNameConstants } from './feature/common/components/navigation/navigation.util';
+import { navigationConstants } from './feature/common/components/navigation/navigation.util';
 import { DashboardMainComponent } from './feature/dashboard/components/dashboard-main.component';
 import { EarningMainComponent } from './feature/earning/components/earning-main.component';
 import { InvestmentMainComponent } from './feature/investment/components/investment-main.component';
@@ -13,23 +13,27 @@ const routes: Routes = [{
     path: apiConstants.login,
     component: LoginComponent
   }, {
-    path: apiConstants.home,
+    path: navigationConstants.dashboard,
     component: DashboardMainComponent
   }, {
-    path: menuNameConstants.dashboard,
-    component: DashboardMainComponent
-  },{
-    path: menuNameConstants.saving,
+    path: navigationConstants.saving,
     component: SavingMainComponent
   }, {
-    path: menuNameConstants.earning,
+    path: navigationConstants.earning,
     component: EarningMainComponent
   }, {
-    path: menuNameConstants.investment,
+    path: navigationConstants.investment,
     component: InvestmentMainComponent
   }, {
-    path: menuNameConstants.reports,
+    path: navigationConstants.reports,
     component: ReportsMainComponent
+  }, {
+    path: '',
+    redirectTo: apiConstants.login,
+    pathMatch: "full"
+  }, {
+    path: '**',
+    redirectTo: apiConstants.login
   }
 ];
 

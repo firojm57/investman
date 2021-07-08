@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { navigationConstants } from 'src/app/feature/common/components/navigation/navigation.util';
 import { UserLoginModel } from 'src/app/model';
 import { UserService } from 'src/app/service/user/user.service';
-import { apiConstants, constants } from 'src/app/shared/utils/constants';
+import { constants } from 'src/app/shared/utils/constants';
 
 @Component({
   selector: 'investman-app-login',
@@ -41,12 +42,12 @@ export class LoginComponent implements OnInit {
   onThemeChange() {
     if(this.appMode == this.constants.dark || this.appMode == this.constants.sysDark) {
       this.appMode = this.constants.light;
-      document.body.classList.remove(this.constants.dark, this.constants.sysDark);
+      document.body.classList.remove(this.constants.dark);
       document.body.classList.add(this.constants.light);
     } else {
       this.appMode = this.constants.dark;
       document.body.classList.remove(this.constants.light);
-      document.body.classList.add(this.constants.dark, this.constants.sysDark);
+      document.body.classList.add(this.constants.dark);
     }
   }
 
@@ -57,7 +58,7 @@ export class LoginComponent implements OnInit {
     }
     this.userService.getLoginStatus(this.userModel).subscribe(statusModel => {
       if(statusModel.status == constants.statusSuccess) {
-        this.router.navigate([`/${apiConstants.home}`]);
+        this.router.navigate([`/${navigationConstants.dashboard}`]);
         this.loginFailCount = 0;
       } else {
         this.loginFailCount += 1;

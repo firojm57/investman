@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { menuNameConstants } from './navigation.util';
+import { navigationConstants } from './navigation.util';
 
 @Component({
   selector: 'investman-app-navigation',
@@ -8,8 +8,8 @@ import { menuNameConstants } from './navigation.util';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
-  menuNames = menuNameConstants;
-  selectedMenuName: string = menuNameConstants.dashboard;
+  menuNames = navigationConstants;
+  selectedMenuName: string = navigationConstants.dashboard;
 
   constructor(private location: Location) { }
 

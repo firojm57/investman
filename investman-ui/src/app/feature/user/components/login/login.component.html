@@ -1,4 +1,4 @@
-<div class="bg-gradient-to-r from-green-400 to-sky-500 w-full h-screen flex flex-col">
+<div class="bg-gradient-to-r from-green-400 to-sky-500 w-full h-screen items-center justify-center flex">
   <div class="container p-6 my-auto mx-auto">
     <!-- Outer Row -->
     <div class="flex justify-center bg-secondary rounded shadow-lg dark:bg-secondary">
@@ -7,42 +7,36 @@
           <div class="flex-auto min-h-px p-0">
             <!-- Nested Row within Card Body -->
             <div class="flex">
-              <div class="w-full flex md:w-max-1/2 hidden lg:block bg-login-image">
+              <div class="w-full md:w-max-1/2 hidden lg:block bg-login-image">
               </div>
               <div class="w-full md:w-max-1/2">
+                <div class="relative bg-gradient-to-r cursor-pointer from-sky-600 to-sky-500 lg:-left-6 top-5 left-1/2
+                  rounded-full bg-primary h-12 w-12 flex items-center justify-center border-0 shadow-xl"
+                  (click)="onThemeChange()">
+                    <i *ngIf="constants.light == appMode" class='text-gray-300 text-3xl bx bx-moon'></i>
+                    <i *ngIf="constants.dark == appMode" class='text-yellow-200 text-3xl bx bxs-sun'></i>
+                </div>
                 <div class="flex flex-col pt-10 pb-20 lg:pb-60 items-center">
-                  <div class="absolute bg-gradient-to-r from-purple-500 to-red-500 top-8 lg:left-2/3 left-1/2
-                    rounded-full bg-primary h-12 w-12 flex items-center justify-center border-0 shadow-lg">
-                      <i *ngIf="constants.light == appMode" class='text-gray-300 text-3xl bx bx-moon' (click)="onThemeChange()"></i>
-                      <i *ngIf="constants.dark == appMode" class='text-yellow-200 text-3xl bx bxs-sun' (click)="onThemeChange()"></i>
-                  </div>
                   <div class="text-center p-10">
                     <span class="text-default font-bold mb-4 text-3xl">Welcome to Investman!</span>
                   </div>
-                  <form action="#" class="space-y-4">
-                    <div class="email">
-                      <div class="relative mt-1">
-                        <i class="w-4 h-4 absolute top-0 m-3 bx bxs-user"></i>
-                        <input type="email" class="p-4 w-80 h-10 rounded pl-10 focus:outline-none
-                          border dark:border-0 focus:border-primary dark:bg-secondary-soft dark:text-gray-100"
-                          placeholder="User Id">
-                      </div>
+                  <form action="#">
+                    <div class="relative">
+                      <i class="w-4 h-4 absolute top-0 m-3 bx bxs-user"></i>
+                      <input type="email" (keyup)="onUserKeyUp($event)" (focusout)="onUserIdFocus()"
+                        class="w-80 h-10 input-box icon-space" placeholder="User Id">
                     </div>
                   
-                    <div class="password">
-                      <div class="relative mt-1 mb-2">
-                        <i class="w-4 h-4 absolute top-0 m-3 bx bxs-key"></i>
-                        <input type="password" class="p-4 w-80 h-10 rounded pl-10 focus:outline-none
-                        border dark:border-0 focus:border-primary dark:bg-secondary-soft dark:text-gray-100"
-                          placeholder="Password">
-                      </div>
+                    <div class="relative mt-4" [ngClass]="!loginErrorMessage?'mb-6':''">
+                      <i class="w-4 h-4 absolute top-0 m-3 bx bxs-key"></i>
+                      <input type="password" (keyup)="onPassKeyUp($event)" (focusout)="onPasswordFocus()"
+                        class="w-80 h-10 input-box icon-space" placeholder="Password">
                     </div>
-                  
-                    <button class="focus:outline-none focus:ring focus:ring-primary w-80
-                      h-9 text-white rounded bg-primary">Log in</button>
+                    <span *ngIf="loginErrorMessage" class="font-medium block mt-1 text-sm text-error">Invalid Credentials!</span>
+                    <button class="btn-primary w-80 h-9 mt-3" (click)="onSubmit()">Log in</button>
                   </form>
                   <div class="py-4 space-x-1">
-                    <span class="text-sm">Don't have an account?</span> <a class="text-primary text-sm hover:underline" href="#">Sign up</a>
+                    <span class="text-sm">Don't have an account? <a class="text-primary text-sm font-semibold hover:underline" href="#">Sign up</a></span>
                   </div>
                 </div>
               </div>
