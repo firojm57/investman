@@ -9,20 +9,42 @@
     --primary: #0284C7;
     --text-default: #27272A;
     --text-secondary: #A1A1AA;
+    --text-error: #ff0033;
     --bg-default: #ffffff;
     --bg-secondary: #F4F4F5;
-    --bg-secondary-soft: #F4F4F5;
+    --bg-input-box: #ffffff;
+    --border-default: #D4D4D8;
 }
 
 .theme-dark {
     --primary: #0284C7;
-    --text-default: #A1A1AA;
-    --text-secondary: #3F3F46;
+    --text-default: #D4D4D8;
+    --text-secondary: #52525B;
+    --text-error: #F43F5E;
     --bg-default: #18181B;
     --bg-secondary: #27272A;
-    --bg-secondary-soft: #3F3F46;
+    --bg-input-box: #3F3F46;
+    --border-default: #52525B;
 }
 
 .theme-transition {
     transition: background-color .25s;
+}
+
+@layer components {
+    .btn-primary {
+        @apply text-white rounded bg-primary;
+        &:focus {
+            @apply outline-none ring ring-sky-300;
+        }
+    }
+    .input-box {
+        @apply rounded bg-input-box border border-default;
+        &.icon-space {
+            @apply pl-10;
+        }
+        &:focus {
+            @apply outline-none border-2 border-primary;
+        }
+    }
 }

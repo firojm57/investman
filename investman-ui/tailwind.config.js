@@ -9,18 +9,23 @@ module.exports = {
         primary: 'var(--primary)',
         default: 'var(--text-default)',
         secondary: 'var(--text-secondary)',
+        error: 'var(--text-error)',
       },
       backgroundColor: {
         primary: 'var(--primary)',
         default: 'var(--bg-default)',
         secondary: 'var(--bg-secondary)',
-        "secondary-soft": 'var(--bg-secondary-soft)',
+        "input-box": 'var(--bg-input-box)',
       },
       borderColor: {
         primary: 'var(--primary)',
+        default: 'var(--border-default)',
+        secondary: 'var(--bg-secondary)',
+      },
+      ringColor: {
+        primary: 'var(--primary)',
         default: 'var(--bg-default)',
         secondary: 'var(--bg-secondary)',
-        "secondary-soft": 'var(--bg-secondary-soft)',
       }
     },
     colors: {
@@ -42,7 +47,6 @@ module.exports = {
       sans: [
         'Quicksand',
         'Inter',
-        '"Open Sans"',
         'system-ui',
         '-apple-system',
         'sans-serif'

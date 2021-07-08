@@ -1,4 +1,4 @@
-export const menuNameConstants = {
+export const navigationConstants = {
     dashboard: "dashboard",
     earning: "earning",
     saving: "saving",
