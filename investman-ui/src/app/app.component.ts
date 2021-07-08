@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Event, NavigationEnd, Router } from '@angular/router';
+import { Event, NavigationEnd, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { NgxTranslateService } from './shared/service/translate/ngx-translate.service';
 import { apiConstants } from './shared/utils/constants';
@@ -9,21 +9,20 @@ import { apiConstants } from './shared/utils/constants';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'Investman';
-  isLogin: boolean = true;
+  isLogin: boolean = false;
+
+  constructor(public ngxTranslateService: NgxTranslateService,
+    private router: Router) {
+      this.ngxTranslateService.setAppLanguage(environment.defaultLanguage);
+  }
 
   ngOnInit() {
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
-        this.isLogin = event.url.endsWith(apiConstants.login);
+        this.isLogin = !event.url || event.url == '/' || event.url.endsWith(apiConstants.login);
       }
-    });    
-  }
-
-  constructor(public ngxTranslateService: NgxTranslateService,
-    private router: Router,
-    private route: ActivatedRoute) {
-      this.ngxTranslateService.setAppLanguage(environment.defaultLanguage);
+    });
   }
 }

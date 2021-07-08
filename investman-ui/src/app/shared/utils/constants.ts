@@ -3,7 +3,6 @@ export const apiConstants = {
     login: "login",
     userId: "userId",
     password: "password",
-    home: "home"
 }
 
 export const constants = {
