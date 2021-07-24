@@ -1,13 +1,19 @@
 <!-- Vertical navbar -->
-<div id="sidebar" class="md:w-56 w-14 min-h-screen shadow-xl">
+<div id="sidebar" class="bg-default border-r border-secondary w-56 min-h-screen shadow-xl overflow-hidden
+  absolute inset-y-0 left-0 transform transition duration-100 ease-in-out
+  lg:static"
+  [ngClass]="collapseMobileMenu?'-translate-x-full lg:-translate-x-0':''">
   <!-- sidebar -->
-  <div class="flex items-center justify-center h-20">
-    <span class="md:inline hidden text-2xl font-bold text-primary">
+  <div class="lg:flex hidden items-center justify-center h-20">
+    <span class="text-2xl font-bold text-primary">
       Investman
     </span>
-    <div class="flex items-center justify-center md:hidden w-full h-full">
-      <span class="text-3xl font-bold text-primary">I</span>
-    </div>
+  </div>
+  <div class="inline-flex items-center justify-center lg:hidden h-14">
+    <button class="ml-4" (click)="onMobileMenuClick()">
+      <i class="bx bx-menu text-3xl"></i>
+    </button>
+    <span class="ml-2 font-bold text-primary text-2xl">Investman</span>
   </div>
   <nav class="font-semibo-ld text-secondary">
     <a class="block pl-4 py-3 rounded-sm" (click)="onSideMenuClick(menuNames.dashboard)"
@@ -17,7 +23,7 @@
        [ngClass]="selectedMenuName == menuNames.dashboard ? 'border-r-4 border-primary' : ''">
         <i class="bx bxs-dashboard text-2xl bx-lg"
           [ngClass]="selectedMenuName == menuNames.dashboard ? 'text-primary': ''"></i>
-        <span class="px-4 md:inline hidden"
+        <span class="px-4"
           [ngClass]="selectedMenuName == menuNames.dashboard ? 'text-default': ''" translate>menu.dashboard</span>
       </div>
     </a>
@@ -28,7 +34,7 @@
        [ngClass]="selectedMenuName == menuNames.earning ? 'border-r-4 border-primary' : ''">
         <i class="bx bxs-wallet text-2xl bx-lg"
           [ngClass]="selectedMenuName == menuNames.earning ? 'text-primary': ''"></i>
-        <span class="px-4 md:inline hidden"
+        <span class="px-4"
           [ngClass]="selectedMenuName == menuNames.earning ? 'text-default': ''" translate>menu.earning</span>
       </div>
     </a>
@@ -39,7 +45,7 @@
        [ngClass]="selectedMenuName == menuNames.saving ? 'border-r-4 border-primary' : ''">
         <i class="bx bxs-heart text-2xl bx-lg"
           [ngClass]="selectedMenuName == menuNames.saving ? 'text-primary': ''"></i>
-        <span class="px-4 md:inline hidden"
+        <span class="px-4"
           [ngClass]="selectedMenuName == menuNames.saving ? 'text-default': ''" translate>menu.saving</span>
       </div>
     </a>
@@ -50,7 +56,7 @@
        [ngClass]="selectedMenuName == menuNames.investment ? 'border-r-4 border-primary' : ''">
         <i class="bx bxs-briefcase-alt text-2xl bx-lg"
           [ngClass]="selectedMenuName == menuNames.investment ? 'text-primary': ''"></i>
-        <span class="px-4 md:inline hidden"
+        <span class="px-4"
           [ngClass]="selectedMenuName == menuNames.investment ? 'text-default': ''" translate>menu.investment</span>
       </div>
     </a>
@@ -61,7 +67,7 @@
        [ngClass]="selectedMenuName == menuNames.reports ? 'border-r-4 border-primary' : ''">
         <i class="bx bxs-report text-2xl bx-lg"
           [ngClass]="selectedMenuName == menuNames.reports ? 'text-primary': ''"></i>
-        <span class="px-4 md:inline hidden"
+        <span class="px-4"
           [ngClass]="selectedMenuName == menuNames.reports ? 'text-default': ''" translate>menu.reports</span>
       </div>
     </a>

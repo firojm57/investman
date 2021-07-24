@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/shared/service/data/data.service';
 import { constants } from 'src/app/shared/utils/constants';
 
 @Component({
@@ -9,10 +10,15 @@ import { constants } from 'src/app/shared/utils/constants';
 export class TopbarComponent implements OnInit {
 
   appMode: string = constants.light;
-  constants = constants
-  constructor() { }
+  constants = constants;
+  collapseMobileMenu: boolean = true;
+
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+    this.dataService.getCollapseMobileMenu().subscribe((toggle: boolean) => {
+      this.collapseMobileMenu = toggle;
+    });
   }
 
   onThemeChange() {
@@ -25,6 +31,11 @@ export class TopbarComponent implements OnInit {
       document.body.classList.remove(this.constants.light);
       document.body.classList.add(this.constants.dark);
     }
+  }
+
+  onMobileMenuClick() {
+    this.collapseMobileMenu = !this.collapseMobileMenu;
+    this.dataService.setCollapseMobileMenu(this.collapseMobileMenu);
   }
 
 }
