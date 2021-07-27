@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Event, NavigationEnd, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { DataService } from './shared/service/data/data.service';
 import { NgxTranslateService } from './shared/service/translate/ngx-translate.service';
 import { apiConstants } from './shared/utils/constants';
 
@@ -12,10 +13,15 @@ import { apiConstants } from './shared/utils/constants';
 export class AppComponent implements OnInit {
   title = 'Investman';
   isLogin: boolean = false;
+  collapseMobileMenu: boolean = true;
 
   constructor(public ngxTranslateService: NgxTranslateService,
-    private router: Router) {
+    private router: Router,
+    private dataService: DataService) {
       this.ngxTranslateService.setAppLanguage(environment.defaultLanguage);
+      this.dataService.getCollapseMobileMenu().subscribe((toggle: boolean) => {
+        this.collapseMobileMenu = toggle;
+      });
   }
 
   ngOnInit() {
@@ -24,5 +30,9 @@ export class AppComponent implements OnInit {
         this.isLogin = !event.url || event.url == '/' || event.url.endsWith(apiConstants.login);
       }
     });
+  }
+
+  onClickOverlay() {
+    this.dataService.setCollapseMobileMenu(true);
   }
 }
