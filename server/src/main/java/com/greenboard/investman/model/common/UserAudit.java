@@ -16,14 +16,19 @@ import java.util.Date;
 @NoArgsConstructor
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public class Audit implements Serializable {
+public class UserAudit implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "created_at", nullable = false, updatable = false)
+    @Column(name = "created_on", nullable = false, updatable = false)
     @CreatedDate
-    protected Date createdAt;
+    protected Date createdOn;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "updated_at", nullable = false)
+    @Column(name = "updated_on", nullable = false)
     @LastModifiedDate
-    protected Date updatedAt;
+    protected Date updatedOn;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "last_login", nullable = false)
+    @LastModifiedDate
+    protected Date lastLogin;
 }

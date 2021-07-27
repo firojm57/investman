@@ -31,7 +31,7 @@ public class InvestmentType {
     @Column(name = "description")
     private String description;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "investment_id")
     private Investment investment;
 }

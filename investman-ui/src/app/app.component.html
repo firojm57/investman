@@ -1,7 +1,7 @@
 <!-- Landing page goes here -->
 <div id="page-top">
   <investman-app-login *ngIf="isLogin"></investman-app-login>
-  <div *ngIf="!isLogin" class="flex h-screen">
+  <div *ngIf="!isLogin" class="md:flex relative h-screen">
     <investman-app-navigation></investman-app-navigation>
     <div class="bg-secondary theme-transition flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
       <investman-app-topbar></investman-app-topbar>

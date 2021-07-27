@@ -1,8 +1,6 @@
 package com.greenboard.investman.model.user;
 
-import com.greenboard.investman.model.common.Audit;
-import com.greenboard.investman.model.investment.Investment;
-import com.greenboard.investman.model.saving.Saving;
+import com.greenboard.investman.model.common.UserAudit;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,7 +13,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "user_profile")
-public class UserProfile extends Audit {
+public class UserProfile extends UserAudit {
 
     public UserProfile(String firstName, String middleName, String lastName, String email, String mobile, User user) {
         this.firstName = firstName;
@@ -56,20 +54,10 @@ public class UserProfile extends Audit {
             cascade = CascadeType.ALL)
     private Set<Address> addresses;
 
-    @OneToMany(mappedBy = "userProfile",
-            fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
-    private Set<Investment> investments;
-
-    @OneToMany(mappedBy = "userProfile",
-            fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
-    private Set<Saving> savings;
-
     @Column(name = "profile_picture")
     private String profilePicture;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 }

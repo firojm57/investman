@@ -1,6 +1,6 @@
 package com.greenboard.investman.model.investment;
 
-import com.greenboard.investman.model.user.UserProfile;
+import com.greenboard.investman.model.user.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -40,9 +40,9 @@ public class Investment {
     @Column(name = "action")
     private String action;
 
-    @ManyToOne
-    @JoinColumn(name = "user_profile_id")
-    private UserProfile userProfile;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @OneToMany(mappedBy = "investment",
             fetch = FetchType.LAZY,
