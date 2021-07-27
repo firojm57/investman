@@ -5,6 +5,7 @@ import com.greenboard.investman.service.user.UserService;
 import com.greenboard.investman.vo.common.StatusVO;
 import com.greenboard.investman.vo.user.UserProfileVO;
 import com.greenboard.investman.vo.user.UserVO;
+import com.greenboard.investman.vo.user.request.UserLoginRequestVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,7 +28,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<StatusVO> getLoginStatus(@RequestBody UserVO userVO) {
+    public ResponseEntity<StatusVO> getLoginStatus(@RequestBody UserLoginRequestVO userVO) {
         return ResponseEntity.ok(userService.getLoginStatus(userVO.getUserId(), userVO.getPassword()));
     }
 

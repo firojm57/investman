@@ -26,7 +26,7 @@ module.exports = {
       borderColor: {
         primary: 'var(--primary)',
         default: 'var(--border-default)',
-        secondary: 'var(--bg-secondary)',
+        secondary: 'var(--border-secondary)',
       },
       ringColor: {
         primary: 'var(--primary)',

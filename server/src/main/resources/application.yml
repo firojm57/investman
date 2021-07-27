@@ -4,7 +4,7 @@ spring:
       connectionTimeout: 20000
       maximumPoolSize: 5
     password: root
-    url: jdbc:postgresql://localhost:5432/investmanDB
+    url: jdbc:postgresql://localhost:5432/investmanDB?currentSchema=myschema
     username: postgres
   jpa:
     hibernate:

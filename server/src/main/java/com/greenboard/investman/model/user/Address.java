@@ -36,7 +36,7 @@ public class Address {
     @Column(name = "postal_code")
     private String postalCode;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_profile_id")
     private UserProfile userProfile;
 }
