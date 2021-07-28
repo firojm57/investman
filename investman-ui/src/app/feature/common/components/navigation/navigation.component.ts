@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/shared/service/data/data.service';
-import { navigationConstants } from './navigation.util';
+import { MenuModel, navigationConstants } from './navigation.util';
 
 @Component({
   selector: 'investman-app-navigation',
@@ -9,16 +9,23 @@ import { navigationConstants } from './navigation.util';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
-  menuNames = navigationConstants;
+  menuModels: MenuModel[] = [];
   selectedMenuName: string = navigationConstants.dashboard;
   collapseMobileMenu: boolean = true;
 
   constructor(private location: Location,
-    private dataService: DataService) { }
+    private dataService: DataService) {
+      this.menuModels.push(new MenuModel(navigationConstants.dashboard, "bx bxs-dashboard", "menu.dashboard"));
+      this.menuModels.push(new MenuModel(navigationConstants.earning, "bx bxs-wallet", "menu.earning"));
+      this.menuModels.push(new MenuModel(navigationConstants.saving, "bx bxs-heart", "menu.saving"));
+      this.menuModels.push(new MenuModel(navigationConstants.investment, "bx bxs-briefcase-alt", "menu.investment"));
+      this.menuModels.push(new MenuModel(navigationConstants.reports, "bx bxs-report", "menu.reports"));
+    }
 
   ngOnInit(): void {
     if(this.location.path()) {
       this.selectedMenuName = this.location.path().split("/")[1];
+      this.dataService.setSelectedMenuName(this.menuModels.filter(menu => menu.name == this.selectedMenuName)[0].labelKey);
     }
 
     this.dataService.getCollapseMobileMenu().subscribe((toggle: boolean) => {
@@ -29,11 +36,6 @@ export class NavigationComponent implements OnInit {
   onSideMenuClick(menuName: string) {
     this.selectedMenuName = menuName;
     this.dataService.setCollapseMobileMenu(true);
+    this.dataService.setSelectedMenuName(this.menuModels.filter(menu => menu.name == this.selectedMenuName)[0].labelKey);
   }
-
-  onMobileMenuClick() {
-    this.collapseMobileMenu = !this.collapseMobileMenu;
-    this.dataService.setCollapseMobileMenu(this.collapseMobileMenu);
-  }
-
 }

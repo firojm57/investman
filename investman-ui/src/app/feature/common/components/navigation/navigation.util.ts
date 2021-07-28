@@ -5,3 +5,9 @@ export const navigationConstants = {
     investment: "investment",
     reports: "reports",
 }
+
+export class MenuModel {
+    constructor(public name: string,
+        public iconClass: string,
+        public labelKey: string) {}
+}
