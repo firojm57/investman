@@ -12,12 +12,16 @@ export class TopbarComponent implements OnInit {
   appMode: string = constants.light;
   constants = constants;
   collapseMobileMenu: boolean = true;
+  selectedMenu: string = "";
 
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
     this.dataService.getCollapseMobileMenu().subscribe((toggle: boolean) => {
       this.collapseMobileMenu = toggle;
+    });
+    this.dataService.getSelectedMenuName().subscribe((labelKey: string) => {
+      this.selectedMenu = labelKey;
     });
   }
 

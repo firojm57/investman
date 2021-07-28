@@ -3,71 +3,21 @@
   absolute inset-y-0 left-0 transform transition duration-100 lg:static"
   [ngClass]="collapseMobileMenu?'-translate-x-full lg:-translate-x-0':'shadow-2xl'">
   <!-- sidebar -->
-  <div class="lg:flex hidden items-center justify-center h-20">
+  <div class="flex items-center justify-center h-20">
     <span class="text-2xl font-bold text-primary">
       Investman
     </span>
   </div>
-  <div class="inline-flex items-center justify-center lg:hidden h-14">
-    <button class="ml-4" (click)="onMobileMenuClick()">
-      <i class="bx bx-menu text-3xl"></i>
-    </button>
-    <span class="ml-2 font-bold text-primary text-2xl">Investman</span>
-  </div>
   <nav class="font-semibo-ld text-secondary lg:block" [ngClass]="collapseMobileMenu?'hidden':''">
-    <a class="block pl-4 py-3 rounded-sm" (click)="onSideMenuClick(menuNames.dashboard)"
-      [ngClass]="selectedMenuName == menuNames.dashboard ? '' : 'hover:text-default'"
-      [routerLink]="'/'+menuNames.dashboard">
+    <a *ngFor="let menu of menuModels" class="block pl-4 py-3 rounded-sm" (click)="onSideMenuClick(menu.name)"
+      [ngClass]="selectedMenuName == menu.name ? '' : 'hover:text-default'"
+      [routerLink]="'/'+menu.name">
       <div class="flex items-center"
-       [ngClass]="selectedMenuName == menuNames.dashboard ? 'border-r-4 border-primary' : ''">
-        <i class="bx bxs-dashboard text-2xl bx-lg"
-          [ngClass]="selectedMenuName == menuNames.dashboard ? 'text-primary': ''"></i>
+       [ngClass]="selectedMenuName == menu.name ? 'border-r-4 border-primary' : ''">
+        <i class="text-2xl bx-lg"
+          [ngClass]="selectedMenuName == menu.name ? 'text-primary ' + menu.iconClass : menu.iconClass"></i>
         <span class="px-4"
-          [ngClass]="selectedMenuName == menuNames.dashboard ? 'text-default': ''" translate>menu.dashboard</span>
-      </div>
-    </a>
-    <a class="block pl-4 py-3 rounded-sm" (click)="onSideMenuClick(menuNames.earning)"
-      [ngClass]="selectedMenuName == menuNames.earning ? '' : 'hover:text-default'"
-      [routerLink]="'/'+menuNames.earning">
-      <div class="flex items-center"
-       [ngClass]="selectedMenuName == menuNames.earning ? 'border-r-4 border-primary' : ''">
-        <i class="bx bxs-wallet text-2xl bx-lg"
-          [ngClass]="selectedMenuName == menuNames.earning ? 'text-primary': ''"></i>
-        <span class="px-4"
-          [ngClass]="selectedMenuName == menuNames.earning ? 'text-default': ''" translate>menu.earning</span>
-      </div>
-    </a>
-    <a class="block pl-4 py-3 rounded-sm" (click)="onSideMenuClick(menuNames.saving)"
-      [ngClass]="selectedMenuName == menuNames.saving ? '' : 'hover:text-default'"
-      [routerLink]="'/'+menuNames.saving">
-      <div class="flex items-center"
-       [ngClass]="selectedMenuName == menuNames.saving ? 'border-r-4 border-primary' : ''">
-        <i class="bx bxs-heart text-2xl bx-lg"
-          [ngClass]="selectedMenuName == menuNames.saving ? 'text-primary': ''"></i>
-        <span class="px-4"
-          [ngClass]="selectedMenuName == menuNames.saving ? 'text-default': ''" translate>menu.saving</span>
-      </div>
-    </a>
-    <a class="block pl-4 py-3 rounded-sm" (click)="onSideMenuClick(menuNames.investment)"
-      [ngClass]="selectedMenuName == menuNames.investment ? '' : 'hover:text-default'"
-      [routerLink]="'/'+menuNames.investment">
-      <div class="flex items-center"
-       [ngClass]="selectedMenuName == menuNames.investment ? 'border-r-4 border-primary' : ''">
-        <i class="bx bxs-briefcase-alt text-2xl bx-lg"
-          [ngClass]="selectedMenuName == menuNames.investment ? 'text-primary': ''"></i>
-        <span class="px-4"
-          [ngClass]="selectedMenuName == menuNames.investment ? 'text-default': ''" translate>menu.investment</span>
-      </div>
-    </a>
-    <a class="block pl-4 py-3 rounded-sm" (click)="onSideMenuClick(menuNames.reports)"
-      [ngClass]="selectedMenuName == menuNames.reports ? '' : 'hover:text-default'"
-      [routerLink]="'/'+menuNames.reports">
-      <div class="flex items-center"
-       [ngClass]="selectedMenuName == menuNames.reports ? 'border-r-4 border-primary' : ''">
-        <i class="bx bxs-report text-2xl bx-lg"
-          [ngClass]="selectedMenuName == menuNames.reports ? 'text-primary': ''"></i>
-        <span class="px-4"
-          [ngClass]="selectedMenuName == menuNames.reports ? 'text-default': ''" translate>menu.reports</span>
+          [ngClass]="selectedMenuName == menu.name ? 'text-default': ''" translate>{{menu.labelKey}}</span>
       </div>
     </a>
   </nav>
