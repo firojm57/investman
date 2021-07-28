@@ -1,11 +1,11 @@
 <header class="lg:bg-secondary bg-default theme-transition shadow-lg lg:shadow-none">
   <div class="px-4 lg:px-8">
     <div class="flex justify-between items-center lg:h-20 h-14">
-      <div class="inline-flex justify-center items-center lg:hidden">
+      <div class="flex justify-center items-center lg:hidden">
         <button (click)="onMobileMenuClick()">
           <i class="bx bx-menu text-3xl"></i>
         </button>
-        <span class="ml-2 font-bold text-primary text-2xl">Investman</span>
+        <span class="ml-2 md:font-semibold text-2xl font-medium text-primary">{{selectedMenu | translate}}</span>
       </div>
       <div class="lg:ml-auto flex items-center justify-center">
         <div class="relative inline-flex item ml-3">
