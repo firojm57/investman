@@ -14,5 +14,13 @@ export const constants = {
 }
 
 export const keys = {
-    defaultLanguage: "defaultLanguage"
+    defaultLanguage: "defaultLanguage",
+    menuDashboard: "menu.dashboard",
+    menuEarning: "menu.earning",
+    menuSaving: "menu.saving",
+    menuInvestment: "menu.investment",
+    menuReports: "menu.reports",
+    userActionProfile: "user.action.profile",
+    userActionSetting: "user.action.setting",
+    userActionLogout: "user.action.logout"
 }

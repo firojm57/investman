@@ -1,7 +1,8 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/shared/service/data/data.service';
-import { MenuModel, navigationConstants } from './navigation.util';
+import { keys } from 'src/app/shared/utils/constants';
+import { MenuModel, navigationConstants } from '../../util/navigation.util';
 
 @Component({
   selector: 'investman-app-navigation',
@@ -15,11 +16,11 @@ export class NavigationComponent implements OnInit {
 
   constructor(private location: Location,
     private dataService: DataService) {
-      this.menuModels.push(new MenuModel(navigationConstants.dashboard, "bx bxs-dashboard", "menu.dashboard"));
-      this.menuModels.push(new MenuModel(navigationConstants.earning, "bx bxs-wallet", "menu.earning"));
-      this.menuModels.push(new MenuModel(navigationConstants.saving, "bx bxs-heart", "menu.saving"));
-      this.menuModels.push(new MenuModel(navigationConstants.investment, "bx bxs-briefcase-alt", "menu.investment"));
-      this.menuModels.push(new MenuModel(navigationConstants.reports, "bx bxs-report", "menu.reports"));
+      this.menuModels.push(new MenuModel(navigationConstants.dashboard, "bx bxs-dashboard", keys.menuDashboard));
+      this.menuModels.push(new MenuModel(navigationConstants.earning, "bx bxs-wallet", keys.menuEarning));
+      this.menuModels.push(new MenuModel(navigationConstants.saving, "bx bxs-heart", keys.menuSaving));
+      this.menuModels.push(new MenuModel(navigationConstants.investment, "bx bxs-briefcase-alt", keys.menuInvestment));
+      this.menuModels.push(new MenuModel(navigationConstants.reports, "bx bxs-report", keys.menuReports));
     }
 
   ngOnInit(): void {

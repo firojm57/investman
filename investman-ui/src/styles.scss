@@ -22,7 +22,7 @@
     --text-default: #D4D4D8;
     --text-secondary: #52525B;
     --text-error: #F43F5E;
-    --bg-default: #18181B;
+    --bg-default: #19191C;
     --bg-secondary: #27272A;
     --bg-input-box: #3F3F46;
     --border-default: #52525B;
@@ -30,7 +30,7 @@
 }
 
 .theme-transition {
-    transition: background-color .25s;
+    transition: background-color .2s, border-color .2s, color .2s;
 }
 
 @layer components {
