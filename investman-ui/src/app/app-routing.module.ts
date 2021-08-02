@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { navigationConstants } from './feature/common/components/navigation/navigation.util';
+import { navigationConstants } from './feature/common/util/navigation.util';
 import { DashboardMainComponent } from './feature/dashboard/components/dashboard-main.component';
 import { EarningMainComponent } from './feature/earning/components/earning-main.component';
 import { InvestmentMainComponent } from './feature/investment/components/investment-main.component';

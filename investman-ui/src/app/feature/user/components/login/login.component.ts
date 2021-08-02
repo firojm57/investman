@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { navigationConstants } from 'src/app/feature/common/components/navigation/navigation.util';
+import { navigationConstants } from 'src/app/feature/common/util/navigation.util';
 import { UserLoginModel } from 'src/app/model';
 import { UserService } from 'src/app/service/user/user.service';
 import { constants } from 'src/app/shared/utils/constants';

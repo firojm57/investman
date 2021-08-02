@@ -16,6 +16,7 @@ import { InvestmentMainComponent } from './feature/investment/components/investm
 import { EarningMainComponent } from './feature/earning/components/earning-main.component';
 import { SavingMainComponent } from './feature/saving/components/saving-main.component';
 import { ReportsMainComponent } from './feature/reports/components/reports-main.component';
+import { UserOptionsComponent } from './feature/user/components/user-options/user-options.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ReportsMainComponent } from './feature/reports/components/reports-main.
     InvestmentMainComponent,
     EarningMainComponent,
     SavingMainComponent,
-    ReportsMainComponent
+    ReportsMainComponent,
+    UserOptionsComponent
   ],
   imports: [
     BrowserModule,
