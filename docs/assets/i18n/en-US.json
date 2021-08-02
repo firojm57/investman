@@ -3,5 +3,8 @@
     "menu.earning": "Earning",
     "menu.saving": "Saving",
     "menu.investment": "Investment",
-    "menu.reports": "Reports"
+    "menu.reports": "Reports",
+    "user.action.profile": "My Profile",
+    "user.action.setting": "Setting",
+    "user.action.logout": "Log out"
 }
