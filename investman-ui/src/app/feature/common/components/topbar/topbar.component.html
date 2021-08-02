@@ -1,46 +1,22 @@
-<header class="lg:bg-secondary bg-default theme-transition shadow-lg lg:shadow-none">
-  <div class="px-4 lg:px-8">
-    <div class="flex justify-between items-center lg:h-20 h-14">
-      <div class="flex justify-center items-center lg:hidden">
-        <button (click)="onMobileMenuClick()">
+<header class="sticky top-0 md:bg-secondary bg-default theme-transition shadow-lg
+  md:shadow-none mb-1 md:mb-2">
+  <div class="px-4 md:pr-6 lg:pr-8">
+    <div class="flex justify-between items-center h-14 md:h-20">
+      <div class="flex h-full md:flex-wrap md:content-end items-center justify-center">
+        <div (click)="onMobileMenuClick()" class="block md:hidden">
           <i class="bx bx-menu text-3xl"></i>
-        </button>
-        <span class="ml-2 md:font-semibold text-2xl font-medium text-primary">{{selectedMenu | translate}}</span>
+        </div>
+        <span class="ml-2 lg:font-semibold text-xl font-semibold text-primary
+          md:text-default md:text-lg md:font-semibold">{{selectedMenu | translate}}</span>
       </div>
       <div class="lg:ml-auto flex items-center justify-center">
-        <div class="relative inline-flex item ml-3">
+        <div class="relative inline-flex item ml-3 cursor-pointer">
           <i *ngIf="constants.light == appMode" class='text-default text-3xl bx bx-moon' (click)="onThemeChange()"></i>
           <i *ngIf="constants.dark == appMode" class='text-yellow-200 text-3xl bx bxs-sun' (click)="onThemeChange()"></i>
         </div>
 
         <hr class="w-px h-6 bg-gray-400 mx-3">
-        <div class="relative inline-flex">
-          <button class="inline-flex justify-center items-center group"
-            aria-haspopup="true" aria-expanded="false">
-            <img class="w-8 h-8 rounded-full"
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAAAlC+aJAAAD/ElEQVR4Ae2axXorRxCFq+by3VyT2NkENTecrC4zMz5A3sIw3mUXfoLQNsywCTOzMSiIhWZ7ZrpSU25NmGFGX/p8UneV8Pzq023E63edg3aWBVHIABgAA2AADIABMAAGwAAYAANw9VU39HTbbQzgurNbNvdv2zKQ6LHbEqBYfAsBerrz27b0b98mGO0FUG+MLi42AJFrdr9je//OHYPJhN1Om7hQehuImCEYAZOJ/M4dA7t2DqaSdnsAFEtvE0+BeQwmaVLJ/O5dA3v2CEbMASqVjzxvQawHEAKCXLJSCXvvnoF9+5x0yo4vgFJe+dv3CMQ4sAQkkCwIYipx2b59gwcOCEYMAeQselPME0tAQNTaGNJzqA4eHDx4yMmk7dgBlMvvKd+TJcBl51oUVrpIJ/OHDg0ePuxkMnaMAFxvfrL6MZBsgnA/i3QlM2kezKTzR444R486WcGIGkBUKLzV8qgllUzCxQPKLuFeWuJFOHp08NhxJ5u1owcold5CvY918kH6oAmF4UCo78dcxj5xwuFLLmdHCTC/0KjVRmUF9L5FSZNuxDFJp4VIROHj2f3Jk0OnTju9ghEBAKtQfDtcAVG4CsGgG11ryp88PpfdyAxnzg719m6MAqDwpvgKP2nkWawShkAo+QlZfunxuWz+7Fnn7PmhC/4Yxkr4h6SIFmZ5EPlKEciVS1KuxyVXvk++y6PyPd/3lL64ynU9Hj3X95Y8d8lnGG/F1wsrp8H6DwHSqesBqJVsZCJEUhRwoGUBIykgkHv0GMzyYFkTIrmbrX+zsPJFz/oKRP8dQCp5HeiDkidFSodFWEhnXbWSREIgt+IyE+IifDFjPb+04ssINvHaNR2dnRcF7nTukaVDjhZpKtAi7Tx8+IL/RWXprpq6dwm/d/+frkA6dR0p0oenUmISpBNJQlQAoS+Ss4Bj1p2oTD87701AqIgArkcLKYi5nJhIIsGAAAmxFSENB7OL46Xa07NL4yCKEmDVynXdnbYEwyImQFRilIH0kW9ZchgBWgA+TM+PFSaf4BFE0QMkE1ezRUAdaH2qy74Ux0ra4NqcHv2q9PjU7Gi8vp1OZ663GACAlAq//xEICb5lcd+YHvlo5PaPxu7Q7uMDYFkrE91XinVAxiC9AgIRDI2p4Xc+vvm9T29tzIzAzxV5hHq6L1+1ar18/CTBRzn1iYHqzeHRiYfqzc8gVOwA5ADFIOcKEclXgMCqNYdHxh6sNbT1WANkUtcSkYW4nKdK7dOR0Qeq9U9BFHeAjo6LV6/pANFk9dOR4ftD620BIN/AIVYqnwyP3F+taevtBLB69fpXXrmxItajkvl/IQNgAAyAATAABsAAGAADYAD+vwDfAQSHHlNp5b1mAAAAAElFTkSuQmCC"
-              width="32" height="32" alt="User">
-            <div class="md:flex items-center truncate hidden">
-              <span class="truncate ml-2 text-sm font-medium group-hover:text-gray-800">Acme Inc.</span>
-            </div>
-          </button>
-          <div
-            class="origin-top-right z-10 absolute top-full right-0 min-w-44 bg-white border border-gray-200 py-1.5 rounded shadow-lg overflow-hidden mt-1"
-            style="display: none;">
-            <div>
-              <div class="pt-0.5 pb-2 px-3 mb-1 border-b border-gray-200">
-                <div class="font-medium text-gray-800">Acme Inc.</div>
-                <div class="text-xs text-gray-500 italic">Administrator</div>
-              </div>
-              <ul>
-                <li><a class="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3"
-                    href="/">Settings</a></li>
-                <li><a class="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3"
-                    href="/">Sign Out</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <investman-user-options></investman-user-options>
       </div>
     </div>
   </div>
