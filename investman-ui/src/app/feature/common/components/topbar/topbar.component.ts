@@ -8,18 +8,13 @@ import { constants } from 'src/app/shared/utils/constants';
   styleUrls: ['./topbar.component.scss']
 })
 export class TopbarComponent implements OnInit {
-
   appMode: string = constants.light;
   constants = constants;
-  collapseMobileMenu: boolean = true;
   selectedMenu: string = "";
 
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.dataService.getCollapseMobileMenu().subscribe((toggle: boolean) => {
-      this.collapseMobileMenu = toggle;
-    });
     this.dataService.getSelectedMenuName().subscribe((labelKey: string) => {
       this.selectedMenu = labelKey;
     });
@@ -38,8 +33,11 @@ export class TopbarComponent implements OnInit {
   }
 
   onMobileMenuClick() {
-    this.collapseMobileMenu = !this.collapseMobileMenu;
-    this.dataService.setCollapseMobileMenu(this.collapseMobileMenu);
+    this.dataService.setSidebarVisible(true);
+  }
+
+  onUserIconClick() {
+    this.dataService.setUserActionVisible(true);
   }
 
 }
