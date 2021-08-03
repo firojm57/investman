@@ -1,32 +1,32 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/shared/service/data/data.service';
 import { keys } from 'src/app/shared/utils/constants';
 import { UserOptionModel } from '../../util/user-utils';
 
 @Component({
-  selector: 'investman-user-options',
-  templateUrl: './user-options.component.html',
-  styleUrls: ['./user-options.component.scss']
+  selector: 'investman-user-action',
+  templateUrl: './user-action.component.html',
+  styleUrls: ['./user-action.component.scss']
 })
-export class UserOptionsComponent implements OnInit {
-  openUserAction: boolean = false;
+export class UserActionComponent implements OnInit {
   optionModels: UserOptionModel[] = [];
   selectedUserOption: string = "";
+  userActionVisible: boolean = false;
 
-  constructor() {
+  constructor(private dataService: DataService) {
     this.optionModels.push(new UserOptionModel("profile", keys.userActionProfile));
     this.optionModels.push(new UserOptionModel("setting", keys.userActionSetting));
     this.optionModels.push(new UserOptionModel("logout", keys.userActionLogout));
   }
 
   ngOnInit(): void {
-  }
-
-  onUserIconClick() {
-    this.openUserAction = !this.openUserAction;
+    this.dataService.getUserActionVisible().subscribe((visible: boolean) =>{
+      this.userActionVisible = visible;
+    });
   }
 
   onOptionClick(option: UserOptionModel) {
-    this.onUserIconClick();
     this.selectedUserOption = option.name;
+    this.dataService.setUserActionVisible(false);
   }
 }

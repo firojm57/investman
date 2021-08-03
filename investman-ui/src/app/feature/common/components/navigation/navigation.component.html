@@ -1,23 +1,23 @@
 <!-- Vertical navbar -->
-<div id="sidebar" class="bg-default w-64 md:w-48 lg:w-56 min-h-screen md:shadow-2xl overflow-hidden
+<div id="sidebar" class="bg-default w-60 md:w-48 lg:w-56 min-h-screen md:shadow-2xl overflow-hidden
   absolute inset-y-0 left-0 transform transition duration-100 md:static"
-  [ngClass]="collapseMobileMenu?'-translate-x-full md:-translate-x-0':'shadow-2xl'">
+  [ngClass]="sidebarVisible?'shadow-2xl':'-translate-x-full md:-translate-x-0'">
   <!-- sidebar -->
   <div class="flex items-center justify-center h-20">
     <span class="text-2xl font-bold text-primary theme-transition">
       Investman
     </span>
   </div>
-  <nav class="font-semibo-ld text-secondary theme-transition md:block" [ngClass]="collapseMobileMenu?'hidden':''">
+  <nav class="font-semibo-ld text-secondary theme-transition md:block" [ngClass]="sidebarVisible?'':'hidden'">
     <a *ngFor="let menu of menuModels" class="block pl-4 py-3 rounded-sm" (click)="onSideMenuClick(menu.name)"
-      [ngClass]="selectedMenuName == menu.name ? '' : 'hover:text-default theme-transition'"
+      [ngClass]="selectedMenuName == menu.name ? '' : 'hover:text-default'"
       [routerLink]="'/'+menu.name">
       <div class="flex items-center"
        [ngClass]="selectedMenuName == menu.name ? 'border-r-4 border-primary' : ''">
         <i class="text-2xl bx-lg"
-          [ngClass]="selectedMenuName == menu.name ? 'text-primary theme-transition ' + menu.iconClass : menu.iconClass"></i>
+          [ngClass]="selectedMenuName == menu.name ? 'text-primary ' + menu.iconClass : menu.iconClass"></i>
         <span class="px-4"
-          [ngClass]="selectedMenuName == menu.name ? 'text-default theme-transition ': ''">{{menu.labelKey | translate}}</span>
+          [ngClass]="selectedMenuName == menu.name ? 'text-default ': ''">{{menu.labelKey | translate}}</span>
       </div>
     </a>
   </nav>

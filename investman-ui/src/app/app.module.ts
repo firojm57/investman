@@ -16,7 +16,7 @@ import { InvestmentMainComponent } from './feature/investment/components/investm
 import { EarningMainComponent } from './feature/earning/components/earning-main.component';
 import { SavingMainComponent } from './feature/saving/components/saving-main.component';
 import { ReportsMainComponent } from './feature/reports/components/reports-main.component';
-import { UserOptionsComponent } from './feature/user/components/user-options/user-options.component';
+import { UserActionComponent } from './feature/user/components/user-action/user-action.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { UserOptionsComponent } from './feature/user/components/user-options/use
     EarningMainComponent,
     SavingMainComponent,
     ReportsMainComponent,
-    UserOptionsComponent
+    UserActionComponent
   ],
   imports: [
     BrowserModule,

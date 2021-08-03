@@ -8,15 +8,24 @@ export class DataService {
 
   constructor() { }
 
-  private toggleMobileMenu: EventEmitter<boolean> = new EventEmitter();
+  private sidebarVisible: EventEmitter<boolean> = new EventEmitter();
+  private userActionVisible: EventEmitter<boolean> = new EventEmitter();
   private selectedMenuName: ReplaySubject<string> = new ReplaySubject(1);
 
-  setCollapseMobileMenu(toggle: boolean) {
-    this.toggleMobileMenu.emit(toggle);
+  setSidebarVisible(toggle: boolean) {
+    this.sidebarVisible.emit(toggle);
   }
 
-  getCollapseMobileMenu(): EventEmitter<boolean> {
-    return this.toggleMobileMenu;
+  getSidebarVisible(): EventEmitter<boolean> {
+    return this.sidebarVisible;
+  }
+
+  setUserActionVisible(toggle: boolean) {
+    this.userActionVisible.emit(toggle);
+  }
+
+  getUserActionVisible(): EventEmitter<boolean> {
+    return this.userActionVisible;
   }
 
   setSelectedMenuName(name: string) {
