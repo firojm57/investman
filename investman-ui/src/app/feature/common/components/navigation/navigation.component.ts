@@ -12,7 +12,7 @@ import { MenuModel, navigationConstants } from '../../util/navigation.util';
 export class NavigationComponent implements OnInit {
   menuModels: MenuModel[] = [];
   selectedMenuName: string = navigationConstants.dashboard;
-  collapseMobileMenu: boolean = true;
+  sidebarVisible: boolean = false;
 
   constructor(private location: Location,
     private dataService: DataService) {
@@ -29,14 +29,14 @@ export class NavigationComponent implements OnInit {
       this.dataService.setSelectedMenuName(this.menuModels.filter(menu => menu.name == this.selectedMenuName)[0].labelKey);
     }
 
-    this.dataService.getCollapseMobileMenu().subscribe((toggle: boolean) => {
-      this.collapseMobileMenu = toggle;
+    this.dataService.getSidebarVisible().subscribe((toggle: boolean) => {
+      this.sidebarVisible = toggle;
     });
   }
 
   onSideMenuClick(menuName: string) {
     this.selectedMenuName = menuName;
-    this.dataService.setCollapseMobileMenu(true);
+    this.dataService.setSidebarVisible(false);
     this.dataService.setSelectedMenuName(this.menuModels.filter(menu => menu.name == this.selectedMenuName)[0].labelKey);
   }
 }

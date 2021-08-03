@@ -2,15 +2,16 @@
 <div id="page-top">
   <investman-app-login *ngIf="isLogin"></investman-app-login>
   <div *ngIf="!isLogin" class="flex relative h-screen">
-    <investman-app-navigation class="z-20"></investman-app-navigation>
+    <investman-app-navigation [ngClass]="!userActionVisible?'z-20':''"></investman-app-navigation>
     <div class="bg-secondary theme-transition flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
       <!-- Blur Overlay -->
-      <div *ngIf="!collapseMobileMenu" (click)="onClickOverlay()"
+      <div *ngIf="sidebarVisible || userActionVisible" (click)="onClickOverlay()"
         class="z-10 h-screen w-screen fixed top-0 left-0 backdrop-filter backdrop-blur-sm
           backdrop-brightness-75 backdrop-contrast-75"></div>
       <investman-app-topbar></investman-app-topbar>
       <!-- Actual content -->
       <router-outlet></router-outlet>
     </div>
+    <investman-user-action class="z-20"></investman-user-action>
   </div>
 </div>

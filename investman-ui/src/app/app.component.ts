@@ -13,15 +13,13 @@ import { apiConstants } from './shared/utils/constants';
 export class AppComponent implements OnInit {
   title = 'Investman';
   isLogin: boolean = false;
-  collapseMobileMenu: boolean = true;
+  sidebarVisible: boolean = false;
+  userActionVisible: boolean = false;
 
   constructor(public ngxTranslateService: NgxTranslateService,
     private router: Router,
     private dataService: DataService) {
       this.ngxTranslateService.setAppLanguage(environment.defaultLanguage);
-      this.dataService.getCollapseMobileMenu().subscribe((toggle: boolean) => {
-        this.collapseMobileMenu = toggle;
-      });
   }
 
   ngOnInit() {
@@ -30,9 +28,16 @@ export class AppComponent implements OnInit {
         this.isLogin = !event.url || event.url == '/' || event.url.endsWith(apiConstants.login);
       }
     });
+    this.dataService.getSidebarVisible().subscribe((toggle: boolean) => {
+      this.sidebarVisible = toggle;
+    });
+    this.dataService.getUserActionVisible().subscribe((visible: boolean) =>{
+      this.userActionVisible = visible;
+    });
   }
 
   onClickOverlay() {
-    this.dataService.setCollapseMobileMenu(true);
+    this.dataService.setSidebarVisible(false);
+    this.dataService.setUserActionVisible(false);
   }
 }
