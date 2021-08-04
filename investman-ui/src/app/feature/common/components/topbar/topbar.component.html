@@ -10,13 +10,14 @@
           md:text-default md:text-lg md:font-semibold">{{selectedMenu | translate}}</span>
       </div>
       <div class="lg:ml-auto flex items-center justify-center">
-        <div class="relative inline-flex item ml-3 cursor-pointer">
-          <i *ngIf="constants.light == appMode" class='text-default text-3xl bx bx-moon' (click)="onThemeChange()"></i>
-          <i *ngIf="constants.dark == appMode" class='text-yellow-200 text-3xl bx bxs-sun' (click)="onThemeChange()"></i>
+        <div class="relative inline-flex item ml-3 cursor-pointer remove-press-highlight"
+          (click)="onThemeChange()">
+          <i *ngIf="constants.light == appMode" class='text-default text-3xl bx bx-moon'></i>
+          <i *ngIf="constants.dark == appMode" class='text-yellow-200 text-3xl bx bxs-sun'></i>
         </div>
 
         <hr class="w-px h-6 bg-gray-400 mx-3">
-        <button class="block w-8 h-8 rounded-full overflow-hidden focus:outline-none"
+        <button class="block w-8 h-8 rounded-full overflow-hidden remove-press-highlight"
           (click)="onUserIconClick()">
           <img class="w-full h-full object-cover" src="assets/img/cat.jpg" alt="User">
         </button>
