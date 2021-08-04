@@ -33,6 +33,15 @@
     transition: background-color .2s, border-color .2s, color .2s;
 }
 
+.remove-press-highlight {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    &:focus {
+        outline: 0;
+        border: none;
+        color: rgba(0, 0, 0, 0);
+    }
+}
+
 @layer components {
     .btn-primary {
         @apply text-white rounded bg-primary;
