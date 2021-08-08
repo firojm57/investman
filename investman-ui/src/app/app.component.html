@@ -3,12 +3,11 @@
   <investman-app-login *ngIf="isLogin"></investman-app-login>
   <div *ngIf="!isLogin" class="flex relative h-screen overflow-x-hidden">
     <investman-app-navigation [ngClass]="!userActionVisible?'z-20':''"></investman-app-navigation>
-    <div class="bg-secondary theme-transition flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
+    <div class="bg-secondary theme-transition flex flex-col flex-1 overflow-y-auto">
       <!-- Blur Overlay -->
       <div *ngIf="sidebarVisible || userActionVisible" (click)="onClickOverlay()"
-        class="z-10 h-screen w-screen fixed top-0 left-0 backdrop-filter backdrop-blur-sm
-          backdrop-brightness-75 backdrop-contrast-75"></div>
-      <investman-app-topbar></investman-app-topbar>
+        class="z-10 h-screen w-screen fixed top-0 left-0 blur-background"></div>
+      <investman-app-topbar class="mb-16 md:mb-0"></investman-app-topbar>
       <!-- Actual content -->
       <router-outlet></router-outlet>
     </div>
