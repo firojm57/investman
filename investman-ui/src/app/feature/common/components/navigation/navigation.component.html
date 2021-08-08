@@ -9,11 +9,11 @@
     </span>
   </div>
   <nav class="font-semibo-ld text-secondary theme-transition md:block" [ngClass]="sidebarVisible?'':'hidden'">
-    <a *ngFor="let menu of menuModels" class="block pl-4 py-3 rounded-sm" (click)="onSideMenuClick(menu.name)"
+    <a *ngFor="let menu of menuModels" class="block py-1 rounded-sm" (click)="onSideMenuClick(menu.name)"
       [ngClass]="selectedMenuName == menu.name ? '' : 'hover:text-default'"
       [routerLink]="'/'+menu.name">
-      <div class="flex items-center"
-       [ngClass]="selectedMenuName == menu.name ? 'border-r-4 border-primary' : ''">
+      <div class="flex items-center pl-4 py-2"
+       [ngClass]="selectedMenuName == menu.name ? 'bg-gradient-to-r from-light-50 to-light-100 theme-transition shadow' : ''">
         <i class="text-2xl bx-lg"
           [ngClass]="selectedMenuName == menu.name ? 'text-primary ' + menu.iconClass : menu.iconClass"></i>
         <span class="px-4"

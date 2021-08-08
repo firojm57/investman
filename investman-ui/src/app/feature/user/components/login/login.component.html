@@ -1,49 +1,31 @@
-<div class="bg-gradient-to-r from-green-400 to-sky-500 w-full h-screen items-center justify-center flex">
-  <div class="container p-6 my-auto mx-auto">
-    <!-- Outer Row -->
-    <div class="flex justify-center bg-secondary rounded shadow-lg dark:bg-secondary">
-      <div class="w-full md:w-max-3/4">
-        <div class="flex flex-col overflow-hidden border-0">
-          <div class="flex-auto min-h-px p-0">
-            <!-- Nested Row within Card Body -->
-            <div class="flex">
-              <div class="w-full md:w-max-1/2 hidden lg:block bg-login-image">
-              </div>
-              <div class="w-full md:w-max-1/2">
-                <div class="relative bg-gradient-to-r cursor-pointer from-sky-600 to-sky-500 lg:-left-6 top-5 left-1/2
-                  rounded-full bg-primary h-12 w-12 flex items-center justify-center border-0 shadow-xl remove-press-highlight"
-                  (click)="onThemeChange()">
-                    <i *ngIf="constants.light == appMode" class='text-gray-300 text-3xl bx bx-moon'></i>
-                    <i *ngIf="constants.dark == appMode" class='text-yellow-200 text-3xl bx bxs-sun'></i>
-                </div>
-                <div class="flex flex-col pt-10 pb-20 lg:pb-60 items-center">
-                  <div class="text-center p-10">
-                    <span class="text-default font-bold mb-4 text-xl md:text-2xl lg:text-3xl">Welcome to Investman!</span>
-                  </div>
-                  <form action="#" class="flex flex-col w-72 md:w-80">
-                    <div class="relative">
-                      <i class="w-4 h-4 absolute top-0 m-3 bx bxs-user"></i>
-                      <input type="email" (keyup)="onUserKeyUp($event)" (focusout)="onUserIdFocus()"
-                        class="h-10 w-full input-box icon-space" placeholder="User Id">
-                    </div>
-                  
-                    <div class="relative mt-4" [ngClass]="!loginErrorMessage?'mb-6':''">
-                      <i class="w-4 h-4 absolute top-0 m-3 bx bxs-key"></i>
-                      <input type="password" (keyup)="onPassKeyUp($event)" (focusout)="onPasswordFocus()"
-                        class="h-10 w-full input-box icon-space" placeholder="Password">
-                    </div>
-                    <span *ngIf="loginErrorMessage" class="font-medium block mt-1 text-sm text-error">Invalid Credentials!</span>
-                    <button class="btn-primary h-9 mt-3" (click)="onSubmit()">Log in</button>
-                  </form>
-                  <div class="py-4 space-x-1">
-                    <span class="text-sm">Don't have an account? <a class="text-primary text-sm font-semibold hover:underline" href="#">Sign up</a></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+<div class="blur-background bg-gradient-to-r from-green-400 to-sky-500 w-full h-screen flex items-center justify-center">
+  <div class="bg-secondary theme-transition rounded shadow-xl p-6 flex flex-col items-center">
+    <span class="bg-gradient-to-r cursor-pointer from-sky-600 to-sky-500 justify-self-center
+      rounded-full bg-primary h-12 w-12 flex items-center justify-center border-0 shadow-xl remove-press-highlight"
+      (click)="onThemeChange()">
+        <i *ngIf="constants.light == appMode" class='text-gray-300 text-3xl bx bx-moon'></i>
+        <i *ngIf="constants.dark == appMode" class='text-yellow-200 text-3xl bx bxs-sun'></i>
+    </span>
+    <div class="text-center p-10">
+      <span class="text-default font-bold mb-4 text-2xl lg:text-3xl">Welcome to Investman!</span>
+    </div>
+    <form action="#" class="flex flex-col w-72 md:w-80">
+      <div class="relative">
+        <i class="w-4 h-4 absolute top-0 m-3 bx bxs-user"></i>
+        <input type="email" (keyup)="onUserKeyUp($event)" autofocus (focusout)="onUserIdFocus()"
+          class="h-10 w-full input-box icon-space" placeholder="User Id">
       </div>
+
+      <div class="relative mt-4" [ngClass]="!loginErrorMessage?'mb-6':''">
+        <i class="w-4 h-4 absolute top-0 m-3 bx bxs-key"></i>
+        <input type="password" (keyup)="onPassKeyUp($event)" (focusout)="onPasswordFocus()"
+          class="h-10 w-full input-box icon-space" placeholder="Password">
+      </div>
+      <span *ngIf="loginErrorMessage" class="font-medium block mt-1 text-sm text-error">Invalid Credentials!</span>
+      <button class="btn-primary h-9 mt-3" (click)="onSubmit()">Log in</button>
+    </form>
+    <div class="py-4 space-x-1">
+      <span class="text-sm">Don't have an account? <a class="text-primary text-sm font-semibold hover:underline" href="#">Sign up</a></span>
     </div>
   </div>
 </div>
