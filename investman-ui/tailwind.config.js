@@ -32,6 +32,10 @@ module.exports = {
         primary: 'var(--primary)',
         default: 'var(--bg-default)',
         secondary: 'var(--bg-secondary)',
+      },
+      gradientColorStops: {
+        "light-50": 'var(--gradient-light-50)',
+        "light-100": 'var(--gradient-light-100)',
       }
     },
     colors: {

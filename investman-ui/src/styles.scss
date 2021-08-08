@@ -15,22 +15,30 @@
     --bg-input-box: #ffffff;
     --border-default: #D4D4D8;
     --border-secondary: #D4D4D8;
+    --gradient-light-50: #F0F9FF;
+    --gradient-light-100: #DBEAFE;
 }
 
 .theme-dark {
     --primary: #0284C7;
     --text-default: #D4D4D8;
-    --text-secondary: #52525B;
+    --text-secondary: #7f8082;
     --text-error: #F43F5E;
-    --bg-default: #19191C;
-    --bg-secondary: #27272A;
-    --bg-input-box: #3F3F46;
-    --border-default: #52525B;
-    --border-secondary: #3F3F46;
+    --bg-default: #2b2b2c;
+    --bg-secondary: #3b3f41;
+    --bg-input-box: #52525B;
+    --border-default: #53535C;
+    --border-secondary: #53535C;
+    --gradient-light-50: #3b3f41;
+    --gradient-light-100: #3f4345;
 }
 
 .theme-transition {
     transition: background-color .2s, border-color .2s, color .2s;
+}
+
+.blur-background {
+    @apply backdrop-filter backdrop-blur-sm backdrop-brightness-75 backdrop-contrast-75;
 }
 
 .remove-press-highlight {
