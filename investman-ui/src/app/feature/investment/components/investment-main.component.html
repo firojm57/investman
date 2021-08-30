@@ -1,1 +1,25 @@
-<p>investment-main works!</p>
+<div class="relative content lg:m-3 divide-y divide-default">
+  <div *ngFor="let it of investments"
+    class="mx-2 flex px-4 flex-col theme-transition bg-default shadow-xl">
+    <div class="flex pt-4 space-x-2">
+      <span class="text-danger theme-transition bg-danger font-medium text-center px-2 rounded-lg ">Sell</span>
+      <span class="text-safe theme-transition bg-safe font-medium text-center px-2 rounded-lg ">Buy</span>
+      <span class="text-info theme-transition bg-info font-medium text-center px-2 rounded-lg">Market/Fund</span>
+      <span class="text-warn theme-transition bg-warn font-medium text-center px-2 rounded-lg">Delivery/Trade</span>
+    </div>
+    <div class="flex justify-between">
+      <div class="p-2 flex flex-col space-y-2">
+        <span class="text-sm font-medium text-secondary">Mar 31, 12:30 pm</span>
+        <span class="text-md font-semibold">{{it}}</span>
+        <span class="text-sm pb-2">Share Market</span>
+      </div>
+      <div class="p-2 flex flex-col space-y-2">
+        <span class="text-sm">TY: 2</span>
+        <span class="text-sm">Rate: 1670</span>
+        <span class="text-sm">Total: 3340</span>
+      </div>
+    </div>
+  </div>
+  <button class="md:hidden block bx bx-plus btn-primary text-2xl
+      mr-4 mb-4 rounded-full h-12 w-12 absolute bottom-0 right-0"></button>
+</div>

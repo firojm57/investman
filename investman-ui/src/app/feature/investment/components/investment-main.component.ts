@@ -7,7 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InvestmentMainComponent implements OnInit {
 
-  constructor() { }
+  investments: Array<string> = new Array();
+  constructor() {
+    this.investments.push("Infosys");
+    this.investments.push("HCL Tech");
+    this.investments.push("LTI");
+    this.investments.push("Happiest Minds");
+    this.investments.push("Tata Motors");
+  }
 
   ngOnInit(): void {
   }

@@ -17,6 +17,14 @@
     --border-secondary: #D4D4D8;
     --gradient-light-50: #F0F9FF;
     --gradient-light-100: #DBEAFE;
+    --bg-danger: #FECACA;
+    --text-danger: #7F1D1D;
+    --bg-safe: #BBF7D0;
+    --text-safe: #14532D;
+    --bg-warn: #FDE68A;
+    --text-warn: #92400E;
+    --bg-info: #E9D5FF;
+    --text-info: #581C87;
 }
 
 .theme-dark {
@@ -31,6 +39,14 @@
     --border-secondary: #53535C;
     --gradient-light-50: #3b3f41;
     --gradient-light-100: #3f4345;
+    --text-danger: #FECACA;
+    --bg-danger: #7F1D1D;
+    --text-safe: #BBF7D0;
+    --bg-safe: #14532D;
+    --text-warn: #FDE68A;
+    --bg-warn: #92400E;
+    --text-info: #E9D5FF;
+    --bg-info: #581C87;
 }
 
 .theme-transition {
