@@ -1,12 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
 .theme-light {
-    --primary: #0284C7;
+    --primary: #4f46e5;
     --text-default: #27272A;
     --text-secondary: #A1A1AA;
     --text-error: #ff0033;
@@ -17,6 +17,7 @@
     --border-secondary: #D4D4D8;
     --gradient-light-50: #F0F9FF;
     --gradient-light-100: #DBEAFE;
+    --bg-active: #f5f3ff;
     --bg-danger: #FECACA;
     --text-danger: #7F1D1D;
     --bg-safe: #BBF7D0;
@@ -28,7 +29,7 @@
 }
 
 .theme-dark {
-    --primary: #0284C7;
+    --primary: #8b5cf6;
     --text-default: #D4D4D8;
     --text-secondary: #7f8082;
     --text-error: #F43F5E;
@@ -39,6 +40,7 @@
     --border-secondary: #53535C;
     --gradient-light-50: #3b3f41;
     --gradient-light-100: #3f4345;
+    --bg-active: #3b3f41;
     --text-danger: #FECACA;
     --bg-danger: #7F1D1D;
     --text-safe: #BBF7D0;
