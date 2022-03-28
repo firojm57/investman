@@ -1,13 +1,12 @@
 <header class="fixed top-0 md:static w-full md:bg-secondary bg-default theme-transition shadow-lg
   md:shadow-none mb-1 md:mb-2">
-  <div class="px-4 md:pr-6 lg:pr-8">
-    <div class="flex justify-between items-center h-14 md:h-20">
+    <div class="flex justify-between items-center h-14 md:h-20 px-3">
       <div class="flex h-full md:flex-wrap md:content-end items-center justify-center">
         <div (click)="onMobileMenuClick()" class="block md:hidden">
           <i class="bx bx-menu text-3xl"></i>
         </div>
-        <span class="ml-2 lg:font-semibold text-xl font-semibold text-primary
-          md:text-default md:text-lg md:font-semibold">{{selectedMenu | translate}}</span>
+        <span class="ml-2 text-xl font-semibold text-default
+          md:text-default md:text-lg">{{selectedMenu | translate}}</span>
       </div>
       <div class="lg:ml-auto flex items-center justify-center">
         <div class="relative inline-flex item ml-3 cursor-pointer remove-press-highlight"
@@ -17,11 +16,11 @@
         </div>
 
         <hr class="w-px h-6 bg-gray-400 mx-3">
-        <button class="block w-8 h-8 rounded-full overflow-hidden remove-press-highlight"
+        <div class="flex items-center justify-between gap-2 remove-press-highlight cursor-pointer"
           (click)="onUserIconClick()">
-          <img class="w-full h-full object-cover" src="assets/img/cat.jpg" alt="User">
-        </button>
+          <img class="w-8 h-8 rounded-full overflow-hidden object-cover" src="assets/img/cat.jpg" alt="User">
+          <span class="hidden md:inline">User name</span>
+        </div>
       </div>
     </div>
-  </div>
 </header>
