@@ -13,6 +13,7 @@ module.exports = {
     extend: {
       textColor: {
         primary: 'var(--primary)',
+        active: 'var(--bg-active)',
         default: 'var(--text-default)',
         secondary: 'var(--text-secondary)',
         error: 'var(--text-error)',
@@ -23,6 +24,7 @@ module.exports = {
       },
       backgroundColor: {
         primary: 'var(--primary)',
+        active: 'var(--bg-active)',
         default: 'var(--bg-default)',
         secondary: 'var(--bg-secondary)',
         danger: 'var(--bg-danger)',
@@ -67,7 +69,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
-        'Quicksand',
+        'Poppins',
         'Inter',
         'system-ui',
         '-apple-system',
