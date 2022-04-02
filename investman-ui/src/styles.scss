@@ -6,13 +6,13 @@
 @import "tailwindcss/utilities";
 
 .theme-light {
-    --primary: #4f46e5;
+    --primary: #1e40af;
     --text-default: #27272A;
-    --text-secondary: #A1A1AA;
+    --text-secondary: #71717a;
     --text-error: #ff0033;
-    --bg-default: #ffffff;
+    --bg-default: #fefefe;
     --bg-secondary: #F4F4F5;
-    --bg-input-box: #ffffff;
+    --bg-input-box: #fefefe;
     --border-default: #D4D4D8;
     --border-secondary: #D4D4D8;
     --gradient-light-50: #F0F9FF;
@@ -29,12 +29,12 @@
 }
 
 .theme-dark {
-    --primary: #8b5cf6;
+    --primary: #3b82f6;
     --text-default: #D4D4D8;
     --text-secondary: #7f8082;
     --text-error: #F43F5E;
     --bg-default: #2b2b2c;
-    --bg-secondary: #3b3f41;
+    --bg-secondary: #3b3b3b;
     --bg-input-box: #52525B;
     --border-default: #53535C;
     --border-secondary: #53535C;
