@@ -1,7 +1,7 @@
 <!-- Vertical navbar -->
-<div id="sidebar" class="bg-default w-60 lg:w-56 min-h-screen md:shadow-2xl overflow-hidden
+<div id="sidebar" class="bg-default w-60 lg:w-56 min-h-screen md:shadow-l overflow-hidden
   absolute inset-y-0 left-0 transform transition duration-100 md:static"
-  [ngClass]="sidebarVisible?'shadow-2xl':'-translate-x-full md:-translate-x-0'">
+  [ngClass]="sidebarVisible?'shadow-l':'-translate-x-full md:-translate-x-0'">
   <!-- sidebar -->
   <div class="flex items-center justify-center h-20">
     <span class="text-2xl font-bold text-green-700 theme-transition">
@@ -10,14 +10,14 @@
   </div>
   <nav class="font-semibo-ld text-secondary theme-transition md:block" [ngClass]="sidebarVisible?'':'hidden'">
     <a *ngFor="let menu of menuModels" class="block" (click)="onSideMenuClick(menu.name)"
-      [ngClass]="selectedMenuName == menu.name ? 'border-r-4 border-primary rounded' : 'hover:text-default'"
+      [ngClass]="selectedMenuName == menu.name ? '' : 'hover:bg-active'"
       [routerLink]="'/'+menu.name">
-      <div class="flex items-center pl-4 py-2"
-       [ngClass]="selectedMenuName == menu.name ? 'bg-active theme-transition' : ''">
+      <div class="flex items-center pl-6 py-2"
+       [ngClass]="selectedMenuName == menu.name ? 'bg-primary theme-transition' : ''">
         <i class="text-2xl bx-lg"
-          [ngClass]="selectedMenuName == menu.name ? 'text-primary ' + menu.iconClass : menu.iconClass"></i>
+          [ngClass]="selectedMenuName == menu.name ? 'text-white ' + menu.iconClass : menu.iconClass"></i>
         <span class="px-4"
-          [ngClass]="selectedMenuName == menu.name ? 'text-default ': ''">{{menu.labelKey | translate}}</span>
+          [ngClass]="selectedMenuName == menu.name ? 'text-white ': ''">{{menu.labelKey | translate}}</span>
       </div>
     </a>
   </nav>
