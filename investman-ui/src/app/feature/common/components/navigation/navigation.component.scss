@@ -2,3 +2,7 @@
     -webkit-box-shadow: 0 0.125rem 0.8rem rgba(0, 0, 0, 0.1);
     box-shadow: 0 0.125rem 0.8rem rgba(0, 0, 0, 0.1);
 }
+
+.active-menu {
+    @apply bg-component text-primary border-l-4 border-primary rounded shadow-lg;
+}

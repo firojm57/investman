@@ -1,26 +1,28 @@
-<header class="fixed top-0 md:static w-full md:bg-secondary bg-default theme-transition shadow-lg
-  md:shadow-none mb-1 md:mb-2">
-    <div class="flex justify-between items-center h-14 md:h-20 px-3">
-      <div class="flex h-full md:flex-wrap md:content-end items-center justify-center">
-        <div (click)="onMobileMenuClick()" class="block md:hidden">
-          <i class="bx bx-menu text-3xl"></i>
-        </div>
-        <span class="ml-2 text-xl font-semibold text-default
-          md:text-default md:text-lg">{{selectedMenu | translate}}</span>
+<header class="w-full bg-component md:py-3 py-2 px-2 shadow-lg md:shadow-md">
+  <div class="flex items-center justify-between relative">
+    <div class="flex items-center justify-center">
+      <span class="bx bx-menu text-3xl pl-2 pr-4 cursor-pointer md:hidden" (click)="onMenuClick()"></span>
+      <img src="./images/logo.png" class="w-28">
+    </div>
+    <div class="bg-default hidden py-2 px-6 w-2/6 rounded-md md:flex items-center gap-4">
+      <span class="text-xl bx bx-search"></span>
+      <input type="search" placeholder="Search" class="bg-transparent w-full">
+    </div>
+    <div class="flex items-center justify-between gap-x-12">
+      <div class="flex bg-default w-20 h-8 rounded-md cursor-pointer">
+        <span class="w-1/2 h-full flex items-center justify-center text-2xl bx bxs-sun"
+          [ngClass]="constants.light == appMode ? 'active' : ''"
+          (click)="onThemeChange()"></span>
+        <span class="w-1/2 h-full flex items-center justify-center text-2xl bx bx-moon"
+          [ngClass]="constants.dark == appMode ? 'active' : ''"
+          (click)="onThemeChange()"></span>
       </div>
-      <div class="lg:ml-auto flex items-center justify-center">
-        <div class="relative inline-flex item ml-3 cursor-pointer remove-press-highlight"
-          (click)="onThemeChange()">
-          <i *ngIf="constants.light == appMode" class='text-default text-3xl bx bx-moon'></i>
-          <i *ngIf="constants.dark == appMode" class='text-yellow-200 text-3xl bx bxs-sun'></i>
-        </div>
-
-        <hr class="w-px h-6 bg-gray-400 mx-3">
-        <div class="flex items-center justify-between gap-2 remove-press-highlight cursor-pointer"
-          (click)="onUserIconClick()">
-          <img class="w-8 h-8 rounded-full overflow-hidden object-cover" src="assets/img/cat.jpg" alt="User">
-          <span class="hidden md:inline">User name</span>
+      <div class="flex items-center">
+        <div class="pr-2 md:pr-4">
+          <img src="assets/img/cat.jpg" alt="user" class="object-cover w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden">
+          <!-- Can add user name here  -->
         </div>
       </div>
     </div>
+  </div>
 </header>
