@@ -6,82 +6,160 @@
 @import "tailwindcss/utilities";
 
 .theme-light {
-    --primary: #1e40af;
-    --text-default: #27272A;
-    --text-secondary: #71717a;
-    --text-error: #ff0033;
-    --bg-default: #fefefe;
-    --bg-secondary: #F4F4F5;
-    --bg-input-box: #fefefe;
-    --border-default: #D4D4D8;
-    --border-secondary: #D4D4D8;
-    --gradient-light-50: #F0F9FF;
-    --gradient-light-100: #DBEAFE;
-    --bg-active: #f5f3ff;
-    --bg-danger: #FECACA;
-    --text-danger: #7F1D1D;
-    --bg-safe: #BBF7D0;
-    --text-safe: #14532D;
-    --bg-warn: #FDE68A;
-    --text-warn: #92400E;
-    --bg-info: #E9D5FF;
-    --text-info: #581C87;
+  --primary: 30 64 175; //#1e40af;
+  --text-default: 39 39 42; //#27272A;
+  --text-muted: 113 113 122; //#71717a;
+  --text-error: 255 0 51; //#ff0033;
+  --bg-default: 243 244 246; //#f3f4f6;
+  --bg-component: 254 254 254; //#fefefe;
+  --border-default: 212 212 216; //#D4D4D8;
+  --bg-danger: 254 202 202; //#FECACA;
+  --text-danger: 127 29 29; //#7F1D1D;
+  --bg-safe: 187 247 208; //#BBF7D0;
+  --text-safe: 20 83 45; //#14532D;
+  --bg-warn: 253 230 138; //#FDE68A;
+  --text-warn: 146 64 14; //#92400E;
+  --bg-info: 233 213 255; //#E9D5FF;
+  --text-info: 88 28 135; //#581C87;
 }
 
 .theme-dark {
-    --primary: #3b82f6;
-    --text-default: #D4D4D8;
-    --text-secondary: #7f8082;
-    --text-error: #F43F5E;
-    --bg-default: #2b2b2c;
-    --bg-secondary: #3b3b3b;
-    --bg-input-box: #52525B;
-    --border-default: #53535C;
-    --border-secondary: #53535C;
-    --gradient-light-50: #3b3f41;
-    --gradient-light-100: #3f4345;
-    --bg-active: #3b3f41;
-    --text-danger: #FECACA;
-    --bg-danger: #7F1D1D;
-    --text-safe: #BBF7D0;
-    --bg-safe: #14532D;
-    --text-warn: #FDE68A;
-    --bg-warn: #92400E;
-    --text-info: #E9D5FF;
-    --bg-info: #581C87;
+  --primary: 59 130 246; //#3b82f6;
+  --text-default: 212 212 216; //#D4D4D8;
+  --text-muted: 127 128 130; //#7f8082;
+  --text-error: 244 63 94; //#F43F5E;
+  --bg-default: 39 39 42; //#27272A
+  --bg-component: 63 63 70; //#3F3F46;
+
+  // --bg-default: 31 41 55; //#1f2937;
+  // --bg-component: 55 65 81; //#374151;
+
+  --border-default: 83 83 92; //#53535C;
+  --text-danger: 254 202 202; //#FECACA;
+  --bg-danger: 127 29 29; //#7F1D1D;
+  --text-safe: 187 247 208; //#BBF7D0;
+  --bg-safe: 20 83 45; //#14532D;
+  --text-warn: 253 230 138; //#FDE68A;
+  --bg-warn: 146 64 14; //#92400E;
+  --text-info: 233 213 255; //#E9D5FF;
+  --bg-info: 88 28 135; //#581C87;
 }
 
-.theme-transition {
-    transition: background-color .2s, border-color .2s, color .2s;
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: none;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
 }
 
-.blur-background {
-    @apply backdrop-filter backdrop-blur-sm backdrop-brightness-75 backdrop-contrast-75;
-}
-
-.remove-press-highlight {
+@layer utilities {
+  .remove-press-highlight {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
     &:focus {
-        outline: 0;
-        border: none;
-        color: rgba(0, 0, 0, 0);
+      outline: 0;
+      border: none;
+      color: rgba(0, 0, 0, 0);
     }
+  }
+
+  .theme-transition {
+    transition: background-color .2s, border-color .2s, color .2s;
+  }
+
+  .top-18 {
+    top: 4.5rem;
+  }
+
+  .w-96p {
+    width: 96%;
+  }
+
+  .h-86vh {
+    height: 86vh;
+  }
+
+  .active {
+    @apply bg-gray-900 rounded-md text-gray-50;
+  }
+
+  .grid-sections-3-big {
+    grid-template-columns: 14rem auto 24rem;
+  }
+
+  .grid-sections-2 {
+    grid-template-columns: 14rem auto;
+  }
+
+  .grid-sections-3-small {
+    grid-template-columns: 12rem auto 20rem;
+  }
+
+  .grid-sections-3-xbig {
+    grid-template-columns: 18rem auto 28rem;
+  }
+
+  .badge-info {
+    @apply bg-info text-info;
+  }
+
+  .badge-danger {
+    @apply bg-danger text-danger;
+  }
+
+  .badge-warm {
+    @apply bg-warn text-warn;
+  }
+
+  .badge-safe {
+    @apply bg-safe text-safe;
+  }
+
+  .shadow-r {
+    box-shadow: 1px 0 18px rgb(0 0 0 / 30%);
+  }
+
+  .mt-18 {
+    margin-top: 4.5rem;
+  }
+
+  .animate-sidebar {
+    left: -100%;
+    animation: sideAnime 150ms ease forwards;
+  }
+
+  @keyframes sideAnime {
+    to {
+      left: 0;
+    }
+  }
 }
 
 @layer components {
-    .btn-primary {
-        @apply text-white rounded bg-primary;
-        &:focus {
-            @apply outline-none ring ring-sky-300;
-        }
+  .btn-primary {
+    @apply text-white rounded bg-primary;
+
+    &:focus {
+      @apply outline-none ring ring-sky-300;
     }
-    .input-box {
-        @apply rounded bg-input-box border border-default;
-        &.icon-space {
-            @apply pl-10;
-        }
-        &:focus {
-            @apply outline-none border-2 border-primary;
-        }
+  }
+
+  .input-box {
+    @apply rounded bg-component border border-default;
+
+    &.icon-space {
+      @apply pl-10;
     }
+
+    &:focus {
+      @apply outline-none border-2 border-primary;
+    }
+  }
+
+  .blur-background {
+    @apply backdrop-filter backdrop-blur-sm backdrop-brightness-75 backdrop-contrast-75;
+  }
 }

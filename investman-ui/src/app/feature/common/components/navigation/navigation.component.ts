@@ -39,4 +39,8 @@ export class NavigationComponent implements OnInit {
     this.dataService.setSidebarVisible(false);
     this.dataService.setSelectedMenuName(this.menuModels.filter(menu => menu.name == this.selectedMenuName)[0].labelKey);
   }
+
+  onCloseClick() {
+    this.dataService.setSidebarVisible(false);
+  }
 }

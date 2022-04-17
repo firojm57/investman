@@ -17,6 +17,7 @@ import { EarningMainComponent } from './feature/earning/components/earning-main.
 import { SavingMainComponent } from './feature/saving/components/saving-main.component';
 import { ReportsMainComponent } from './feature/reports/components/reports-main.component';
 import { UserActionComponent } from './feature/user/components/user-action/user-action.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { UserActionComponent } from './feature/user/components/user-action/user-
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    ChartsModule,
 
     // Translation configuration
     TranslateModule.forRoot({

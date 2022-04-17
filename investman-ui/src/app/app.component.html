@@ -1,16 +1,154 @@
-<!-- Landing page goes here -->
+<!-- Landing page goes here
 <div id="page-top">
   <investman-app-login *ngIf="isLogin"></investman-app-login>
   <div *ngIf="!isLogin" class="flex relative h-screen overflow-x-hidden">
-    <investman-app-navigation [ngClass]="!userActionVisible?'z-20':''"></investman-app-navigation>
-    <div class="bg-secondary theme-transition flex flex-col flex-1 overflow-y-auto">
-      <!-- Blur Overlay -->
-      <div *ngIf="sidebarVisible || userActionVisible" (click)="onClickOverlay()"
-        class="z-10 h-screen w-screen fixed top-0 left-0 blur-background"></div>
+    <investman-app-navigation class="z-20"></investman-app-navigation>
+    <div class="bg-component relative theme-transition flex flex-col flex-1 overflow-y-auto">
+      Blur Overlay 
+      <div *ngIf="sidebarVisible" (click)="onClickOverlay()"
+        class="z-10 h-screen w-screen fixed top-0 left-0 blur-background">
+      </div>
       <investman-app-topbar class="mb-16 md:mb-0"></investman-app-topbar>
-      <!-- Actual content -->
+      Actual content
       <router-outlet></router-outlet>
+      <investman-user-action class="absolute md:right-2 md:left-auto left-2 top-16 md:top-18"></investman-user-action>
     </div>
-    <investman-user-action class="z-20"></investman-user-action>
   </div>
-</div>
+</div> -->
+
+<investman-app-topbar></investman-app-topbar>
+
+<main class="grid md:grid-sections-2 lg:grid-sections-3-small xl:grid-sections-3-big 2xl:grid-sections-3-xbig gap-8 w-96p mt-4 mx-auto mb-16">
+  <investman-app-navigation></investman-app-navigation>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+
+  <section class="md:col-start-2 lg:col-start-auto">
+    <div class="bg-component rounded-xl shadow-xl">
+      <div class="flex justify-between items-center px-5 pt-5 font-medium">
+        <h2>Investments</h2>
+        <a href="javascript:void(0)" class="flex items-center text-primary text-sm">
+          More <span class="text-2xl leading-6 bx bx-chevron-right"></span>
+        </a>
+      </div>
+
+      <div class="flex items-center justify-between p-5 hover:bg-primary/5
+        transition-colors duration-200 ease-linear cursor-pointer border-b border-solid border-gray-100">
+        <img src="" alt="Inf" class="w-8">
+        <h4 class="font-semibold">Infosys</h4>
+        <div>
+          <p class="text-sm">234</p>
+          <small class="text-muted">Stocks</small>
+        </div>
+        <div>
+          <h4 class="font-semibold">2,344</h4>
+          <small class="text-safe">+3.54%</small>
+        </div>
+      </div>
+      <!-- End invest 1 -->
+
+      <div class="flex items-center justify-between p-5 hover:bg-primary/5
+        transition-colors duration-200 ease-linear cursor-pointer border-b border-solid border-gray-100">
+        <img src="" alt="Inf" class="w-8">
+        <h4 class="font-semibold">Infosys</h4>
+        <div>
+          <p class="text-sm">234</p>
+          <small class="text-muted">Stocks</small>
+        </div>
+        <div>
+          <h4 class="font-semibold">2,344</h4>
+          <small class="text-safe">+3.54%</small>
+        </div>
+      </div>
+      <!-- End invest 2 -->
+
+      <div class="flex items-center justify-between p-5 hover:bg-primary/5
+        transition-colors duration-200 ease-linear cursor-pointer border-b border-solid border-gray-100">
+        <img src="" alt="Inf" class="w-8">
+        <h4 class="font-semibold">Infosys</h4>
+        <div>
+          <p class="text-sm">234</p>
+          <small class="text-muted">Stocks</small>
+        </div>
+        <div>
+          <h4 class="font-semibold">2,344</h4>
+          <small class="text-safe">+3.54%</small>
+        </div>
+      </div>
+      <!-- End invest 3 -->
+      
+      <div class="flex items-center justify-between p-5 hover:bg-primary/5
+        transition-colors duration-200 ease-linear cursor-pointer">
+        <img src="" alt="Inf" class="w-8">
+        <h4 class="font-semibold">Infosys</h4>
+        <div>
+          <p class="text-sm">234</p>
+          <small class="text-muted">Stocks</small>
+        </div>
+        <div>
+          <h4 class="font-semibold">2,344</h4>
+          <small class="text-safe">+3.54%</small>
+        </div>
+      </div>
+      <!-- End invest 4 -->
+    </div>
+    <!-- End investments -->
+    <div class="mt-6">
+      <h2 class="mb-3">Sale Anal</h2>
+      <div class="bg-component flex items-center gap-4 mb-2 p-4 rounded-xl
+        shadow-lg hover:shadow-primary/30 transition-shadow ease-in duration-200">
+        <div class="p-3 badge-info rounded-full flex">
+          <span class="bx bxs-credit-card text-2xl leading-6"></span>
+        </div>
+        <div class="flex justify-between items-start m-0 w-full">
+          <div>
+            <h3>Online</h3>
+            <small class="text-muted">Last day</small>
+          </div>
+          <h5 class="text-safe">+2.55%</h5>
+          <h3>234</h3>
+        </div>
+      </div>
+
+      <div class="bg-component flex items-center gap-4 mb-2 p-4 rounded-xl
+        shadow-lg hover:shadow-primary/30 transition-shadow ease-in duration-200">
+        <div class="p-3 badge-safe rounded-full flex">
+          <span class="bx bxs-credit-card text-2xl leading-6"></span>
+        </div>
+        <div class="flex justify-between items-start m-0 w-full">
+          <div>
+            <h3>Offline</h3>
+            <small class="text-muted">Last day</small>
+          </div>
+          <h5 class="text-safe">+2.55%</h5>
+          <h3>234</h3>
+        </div>
+      </div>
+
+      <div class="bg-component flex items-center gap-4 mb-2 p-4 rounded-xl
+        shadow-lg hover:shadow-primary/30 transition-shadow ease-in duration-200">
+        <div class="p-3 badge-danger rounded-full flex">
+          <span class="bx bxs-credit-card text-2xl leading-6"></span>
+        </div>
+        <div class="flex justify-between items-start m-0 w-full">
+          <div>
+            <h3>Client</h3>
+            <small class="text-muted">Last day</small>
+          </div>
+          <h5 class="text-safe/80">+2.55%</h5>
+          <h3>234</h3>
+        </div>
+      </div>
+
+      <div class="border border-solid border-primary text-primary rounded-xl p-5
+        flex items-center justify-center cursor-pointer">
+        <div class="flex items-center gap-3">
+          <span class='bx bx-plus text-2xl leading-6'></span>
+          <h3 class="font-semibold">Add New</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End right -->
+</main>
