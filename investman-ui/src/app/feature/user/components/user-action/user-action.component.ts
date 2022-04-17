@@ -27,6 +27,7 @@ export class UserActionComponent implements OnInit {
 
   onOptionClick(option: UserOptionModel) {
     this.selectedUserOption = option.name;
-    this.dataService.setUserActionVisible(false);
+    // This will inform both, current component and topbar component
+    this.dataService.setUserActionVisible(!this.userActionVisible);
   }
 }

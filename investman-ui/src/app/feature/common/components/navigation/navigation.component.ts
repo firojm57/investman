@@ -36,7 +36,12 @@ export class NavigationComponent implements OnInit {
 
   onSideMenuClick(menuName: string) {
     this.selectedMenuName = menuName;
+    console.info(this.selectedMenuName);
     this.dataService.setSidebarVisible(false);
     this.dataService.setSelectedMenuName(this.menuModels.filter(menu => menu.name == this.selectedMenuName)[0].labelKey);
+  }
+
+  onCloseClick() {
+    this.dataService.setSidebarVisible(false);
   }
 }

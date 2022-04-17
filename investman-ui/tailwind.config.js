@@ -1,50 +1,73 @@
 const colors = require('tailwindcss/colors')
+const plugin = require('tailwindcss/plugin')
+
+function withOpacity(variable) {
+  return ({ opacityValue }) => {
+    if (opacityValue === undefined) {
+      return `rgb(var(${variable}))`
+    }
+    return `rgb(var(${variable}) / ${opacityValue})`
+  }
+}
 
 module.exports = {
-  purge: [],
+  content: [
+    "./src/**/*.html",
+    "./src/**/*.ts"
+  ],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
       textColor: {
-        primary: 'var(--primary)',
-        active: 'var(--bg-active)',
-        default: 'var(--text-default)',
-        secondary: 'var(--text-secondary)',
-        error: 'var(--text-error)',
-        danger: 'var(--text-danger)',
-        safe: 'var(--text-safe)',
-        info: 'var(--text-info)',
-        warn: 'var(--text-warn)',
+        primary: withOpacity('--primary'),
+        default: withOpacity('--text-default'),
+        component: withOpacity('--bg-component'),
+        muted: withOpacity('--text-muted'),
+        error: withOpacity('--text-error'),
+        danger: withOpacity('--text-danger'),
+        safe: withOpacity('--text-safe'),
+        info: withOpacity('--text-info'),
+        warn: withOpacity('--text-warn'),
       },
       backgroundColor: {
-        primary: 'var(--primary)',
-        active: 'var(--bg-active)',
-        default: 'var(--bg-default)',
-        secondary: 'var(--bg-secondary)',
-        danger: 'var(--bg-danger)',
-        safe: 'var(--bg-safe)',
-        info: 'var(--bg-info)',
-        warn: 'var(--bg-warn)',
-        "input-box": 'var(--bg-input-box)',
+        primary: withOpacity('--primary'),
+        default: withOpacity('--bg-default'),
+        component: withOpacity('--bg-component'),
+        danger: withOpacity('--bg-danger'),
+        safe: withOpacity('--bg-safe'),
+        info: withOpacity('--bg-info'),
+        warn: withOpacity('--bg-warn'),
       },
       borderColor: {
-        primary: 'var(--primary)',
-        default: 'var(--border-default)',
-        secondary: 'var(--border-secondary)',
+        primary: withOpacity('--primary'),
+        default: withOpacity('--border-default'),
       },
       divideColor: {
-        primary: 'var(--primary)',
-        default: 'var(--border-default)',
-        secondary: 'var(--border-secondary)',
+        primary: withOpacity('--primary'),
+        default: withOpacity('--border-default'),
       },
       ringColor: {
-        primary: 'var(--primary)',
-        default: 'var(--bg-default)',
-        secondary: 'var(--bg-secondary)',
+        primary: withOpacity('--primary'),
+        default: withOpacity('--bg-default'),
+        component: withOpacity('--bg-component'),
       },
-      gradientColorStops: {
-        "light-50": 'var(--gradient-light-50)',
-        "light-100": 'var(--gradient-light-100)',
+      boxShadowColor: {
+        primary: withOpacity('--primary'),
+        default: withOpacity('--bg-default'),
+        component: withOpacity('--bg-component'),
+        danger: withOpacity('--bg-danger'),
+        safe: withOpacity('--bg-safe'),
+        info: withOpacity('--bg-info'),
+        warn: withOpacity('--bg-warn'),
+      },
+      stroke: {
+        primary: withOpacity('--primary'),
+        default: withOpacity('--bg-default'),
+        component: withOpacity('--bg-component'),
+        danger: withOpacity('--bg-danger'),
+        safe: withOpacity('--bg-safe'),
+        info: withOpacity('--bg-info'),
+        warn: withOpacity('--bg-warn'),
       }
     },
     colors: {
@@ -64,15 +87,22 @@ module.exports = {
     fontFamily: {
       sans: [
         'Poppins',
-        'Inter',
+        'sans-serif',
         'system-ui',
-        '-apple-system',
-        'sans-serif'
+        '-apple-system'
       ]
     },
   },
-  variants: {
-    extend: {},
-  },
-  plugins: [],
+  plugins: [
+    plugin(function({ addBase, theme }) {
+      addBase({
+        'h1': { fontSize: theme('fontSize.2xl') },
+        'h2': { fontSize: theme('fontSize.xl') },
+        'h3': { fontSize: theme('fontSize.lg') },
+        'h4': { fontSize: theme('fontSize.base') },
+        'h5': { fontSize: theme('fontSize.sm') },
+        'h6': { fontSize: theme('fontSize.xs') },
+      })
+    })
+  ],
 }

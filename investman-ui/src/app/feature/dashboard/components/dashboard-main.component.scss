@@ -1,0 +1,14 @@
+.stroke-progress {
+    fill: none;
+    stroke-width: 14;
+    stroke-linecap: round;
+    transform: translate(8px, 8px);
+    stroke-dasharray: 110;
+    stroke-dashoffset: 92;
+}
+
+tbody {
+    td {
+        @apply h-8 border-t border-solid border-gray-100;
+    }
+}

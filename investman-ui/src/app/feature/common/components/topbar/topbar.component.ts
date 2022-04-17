@@ -10,13 +10,14 @@ import { constants } from 'src/app/shared/utils/constants';
 export class TopbarComponent implements OnInit {
   appMode: string = constants.light;
   constants = constants;
-  selectedMenu: string = "";
+  sidebarVisible: boolean = false;
+  userAction: boolean = false;
 
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.dataService.getSelectedMenuName().subscribe((labelKey: string) => {
-      this.selectedMenu = labelKey;
+    this.dataService.getUserActionVisible().subscribe((visible: boolean) =>{
+      this.userAction = visible;
     });
   }
 
@@ -32,12 +33,13 @@ export class TopbarComponent implements OnInit {
     }
   }
 
-  onMobileMenuClick() {
+  onMenuClick() {
     this.dataService.setSidebarVisible(true);
   }
 
   onUserIconClick() {
-    this.dataService.setUserActionVisible(true);
+    // This will inform both, the current component and user actions component
+    this.dataService.setUserActionVisible(!this.userAction);
   }
 
 }
