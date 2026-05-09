@@ -153,16 +153,17 @@
   </div>
   <!-- End fast payment -->
 
-  <canvas class="bg-component max-w-full mt-6 rounded-lg p-4 shadow-xl"
-    baseChart
-    [datasets]="lineChartData"
-    [labels]="lineChartLabels"
-    [options]="lineChartOptions"
-    [colors]="lineChartColors"
-    [legend]="lineChartLegend"
-    chartType="line"
-    [plugins]="lineChartPlugins">
-  </canvas>
+  <ngx-charts-line-chart
+    class="bg-component max-w-full mt-6 rounded-lg p-4 shadow-xl"
+    [results]="chartData"
+    [legend]="true"
+    [xAxis]="true"
+    [yAxis]="true"
+    [showXAxisLabel]="true"
+    [showYAxisLabel]="true"
+    [xAxisLabel]="'Month'"
+    [yAxisLabel]="'Sales'">
+  </ngx-charts-line-chart>
 
   <div class="mt-6">
     <h2 class="mb-3">Orders</h2>

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +18,7 @@ import { EarningMainComponent } from './feature/earning/components/earning-main.
 import { SavingMainComponent } from './feature/saving/components/saving-main.component';
 import { ReportsMainComponent } from './feature/reports/components/reports-main.component';
 import { UserActionComponent } from './feature/user/components/user-action/user-action.component';
-import { ChartsModule } from 'ng2-charts';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -38,16 +39,18 @@ import { ChartsModule } from 'ng2-charts';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    ChartsModule,
+    NgxChartsModule,
+    CommonModule,
 
     // Translation configuration
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: translateLoaderFactory,
+        useFactory: (http: HttpClient) => new TranslateHttpLoader(http),
         deps: [HttpClient]
       }
-    })
+    }),
+    AppRoutingModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true }
@@ -55,7 +58,3 @@ import { ChartsModule } from 'ng2-charts';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-export function translateLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
-}
