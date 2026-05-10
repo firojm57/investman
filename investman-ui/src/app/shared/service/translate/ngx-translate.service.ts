@@ -15,7 +15,7 @@ export class NgxTranslateService {
   }
 
   setAppLanguage(language: string) {
-    language = language || this.userPreference.getLanguage() || this.translateService.getBrowserCultureLang();
+    language = language || this.userPreference.getLanguage() || this.translateService.getBrowserCultureLang() || environment.defaultLanguage;
     if(environment.supportedLanguages.indexOf(language) == -1) {
       language = environment.defaultLanguage;
     }

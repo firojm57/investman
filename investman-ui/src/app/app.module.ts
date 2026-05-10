@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
@@ -41,6 +42,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     ReactiveFormsModule,
     NgxChartsModule,
     CommonModule,
+    BrowserAnimationsModule,
 
     // Translation configuration
     TranslateModule.forRoot({
@@ -50,7 +52,6 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
         deps: [HttpClient]
       }
     }),
-    AppRoutingModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true }
