@@ -1,0 +1,144 @@
+<div class="space-y-6 animate-fade-in">
+  <!-- Header Title -->
+  <div class="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
+    <div>
+      <h1 class="text-3xl font-bold tracking-tight text-text-primary">
+        {{ 'NAV.BALANCE' | translate }} Sheet
+      </h1>
+      <p class="font-medium text-sm text-text-secondary mt-1">
+        Detailed breakdown of your current capital assets against liabilities.
+      </p>
+    </div>
+    
+    <!-- Action Pills -->
+    <div class="flex items-center space-x-3">
+      <button class="bg-card border border-border text-text-primary px-4 py-2 rounded-full font-semibold text-xs transition-all duration-300 hover:bg-background flex items-center space-x-1.5 shadow-sm cursor-pointer">
+        <svg class="w-4 h-4"><use href="assets/icons.svg#icon-calendar"></use></svg>
+        <span>As of Today</span>
+      </button>
+      <button class="bg-accent-primary text-card px-4 py-2 rounded-full font-semibold text-xs transition-all duration-300 hover:bg-accent-primary/95 flex items-center space-x-1.5 shadow-sm cursor-pointer">
+        <svg class="w-4 h-4"><use href="assets/icons.svg#icon-export"></use></svg>
+        <span>Export Statement</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Combined net worth bar/card -->
+  <div class="bg-card border border-border rounded-3xl p-6 shadow-sm transition-colors duration-300">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+      <div>
+        <span class="font-semibold text-xs tracking-wider text-text-secondary uppercase">
+          {{ 'DASHBOARD.NET_WORTH' | translate }}
+        </span>
+        <div class="font-black text-3xl text-text-primary mt-1">
+          {{ getNetWorth() | currency:'USD':'symbol':'1.0-0' }}
+        </div>
+        <p class="font-semibold text-xs text-accent-tertiary mt-1 flex items-center">
+          <svg class="w-3.5 h-3.5 mr-0.5"><use href="assets/icons.svg#icon-arrow-up-right"></use></svg>
+          <span>+2.8% vs last month</span>
+        </p>
+      </div>
+
+      <!-- Ratio Bar Chart -->
+      <div class="md:col-span-2 space-y-2">
+        <div class="flex justify-between font-bold text-xs">
+          <span class="text-text-primary">Equity Ratio (Assets Coverage)</span>
+          <span class="text-accent-secondary">{{ getEquityRatio() | number:'1.0-1' }}%</span>
+        </div>
+        <div class="w-full bg-border/40 rounded-full h-3.5 overflow-hidden flex">
+          <div 
+            class="bg-accent-secondary h-full transition-all duration-500" 
+            [style.width.%]="getEquityRatio()"
+            title="Equity"
+          ></div>
+          <div 
+            class="bg-feedback-danger h-full transition-all duration-500" 
+            [style.width.%]="100 - getEquityRatio()"
+            title="Debt"
+          ></div>
+        </div>
+        <div class="flex justify-between font-semibold text-[10px] text-text-secondary">
+          <span class="flex items-center"><span class="w-2 h-2 rounded-full bg-accent-secondary mr-1"></span>Own (Equity)</span>
+          <span class="flex items-center"><span class="w-2 h-2 rounded-full bg-feedback-danger mr-1"></span>Owe (Debt)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Assets vs Liabilities Dual Column Grid -->
+  <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+    <!-- ASSETS CARD -->
+    <div class="bg-card border border-border rounded-3xl p-6 shadow-sm flex flex-col transition-colors duration-300">
+      <div class="flex items-center justify-between border-b border-border/60 pb-4 mb-4">
+        <div class="flex items-center space-x-2.5">
+          <div class="w-9 h-9 rounded-xl bg-accent-secondary/10 flex items-center justify-center text-accent-secondary">
+            <svg class="w-5 h-5"><use href="assets/icons.svg#icon-assets"></use></svg>
+          </div>
+          <span class="font-bold text-lg text-text-primary">Capital Assets</span>
+        </div>
+        <span class="font-bold text-sm text-text-secondary">
+          Total: <span class="text-text-primary font-extrabold">{{ getTotalAssets() | currency:'USD':'symbol':'1.0-0' }}</span>
+        </span>
+      </div>
+
+      <div class="space-y-4 flex-1">
+        @for (item of assets; track item.name) {
+          <div 
+            class="flex items-center justify-between p-3.5 rounded-2xl bg-background/50 border border-border/30 hover:border-accent-secondary/20 transition-all duration-300"
+          >
+            <div class="flex items-center space-x-3">
+              <div class="w-8 h-8 rounded-full bg-card border border-border flex items-center justify-center text-text-secondary">
+                <svg class="w-4 h-4"><use [attr.href]="'assets/icons.svg#' + item.icon"></use></svg>
+              </div>
+              <div>
+                <div class="font-bold text-sm text-text-primary">{{ item.name }}</div>
+                <div class="font-medium text-[11px] text-text-secondary mt-0.5">{{ item.category }}</div>
+              </div>
+            </div>
+            <div class="text-right">
+              <div class="font-black text-sm text-text-primary">{{ item.value | currency:'USD':'symbol':'1.0-0' }}</div>
+              <div class="font-semibold text-[10px] text-accent-tertiary mt-0.5">{{ item.change }} YTD</div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- LIABILITIES CARD -->
+    <div class="bg-card border border-border rounded-3xl p-6 shadow-sm flex flex-col transition-colors duration-300">
+      <div class="flex items-center justify-between border-b border-border/60 pb-4 mb-4">
+        <div class="flex items-center space-x-2.5">
+          <div class="w-9 h-9 rounded-xl bg-feedback-danger/10 flex items-center justify-center text-feedback-danger">
+            <svg class="w-5 h-5"><use href="assets/icons.svg#icon-liabilities"></use></svg>
+          </div>
+          <span class="font-bold text-lg text-text-primary">Outstanding Liabilities</span>
+        </div>
+        <span class="font-bold text-sm text-text-secondary">
+          Total: <span class="text-text-primary font-extrabold">{{ getTotalLiabilities() | currency:'USD':'symbol':'1.0-0' }}</span>
+        </span>
+      </div>
+
+      <div class="space-y-4 flex-1">
+        @for (item of liabilities; track item.name) {
+          <div 
+            class="flex items-center justify-between p-3.5 rounded-2xl bg-background/50 border border-border/30 hover:border-feedback-danger/20 transition-all duration-300"
+          >
+            <div class="flex items-center space-x-3">
+              <div class="w-8 h-8 rounded-full bg-card border border-border flex items-center justify-center text-text-secondary">
+                <svg class="w-4 h-4"><use [attr.href]="'assets/icons.svg#' + item.icon"></use></svg>
+              </div>
+              <div>
+                <div class="font-bold text-sm text-text-primary">{{ item.name }}</div>
+                <div class="font-medium text-[11px] text-text-secondary mt-0.5">{{ item.category }}</div>
+              </div>
+            </div>
+            <div class="text-right">
+              <div class="font-black text-sm text-text-primary">{{ item.value | currency:'USD':'symbol':'1.0-0' }}</div>
+              <div class="font-semibold text-[10px] text-feedback-danger mt-0.5">APR: {{ item.rate }}</div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

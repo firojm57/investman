@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@source "./app/**/*.html";
+@source "./app/**/*.ts";
+
+@theme {
+  --color-background: var(--background);
+  --color-card: var(--card);
+  --color-border: var(--border);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-tertiary: var(--accent-tertiary);
+
+  --color-feedback-success: var(--feedback-success);
+  --color-feedback-danger: var(--feedback-danger);
+
+  --color-advisor-start: var(--advisor-start);
+  --color-advisor-end: var(--advisor-end);
+}
+
+:root {
+  /* LIGHT THEME (Visible as light theme in wealth-dashboard.png) */
+  --background: #f8fafc;
+  --card: #ffffff;
+  --border: #e2e8f0;
+
+  /* text-primary is #2f374a */
+  --text-primary: #4a4a4a;
+  --text-secondary: #64748b;
+
+  --accent-primary: #2f374a;
+  --accent-secondary: #FFB33F;
+  /* FFB33F requirement */
+  --accent-tertiary: #10b981;
+
+  --feedback-success: #10b981;
+  --feedback-danger: #ef4444;
+
+  --advisor-start: #f8fafc;
+  --advisor-end: #f1f5f9;
+}
+
+[data-theme='dark'] {
+  /* DARK THEME (Generated accordingly) */
+  --background: #0b0f19;
+  --card: #111827;
+  --border: #1f2937;
+
+  --text-primary: #d9dadb;
+  --text-secondary: #9ca3af;
+
+  --accent-primary: #d9dadb;
+  --accent-secondary: #FFB33F;
+  --accent-tertiary: #34d399;
+
+  --feedback-success: #34d399;
+  --feedback-danger: #f87171;
+
+  --advisor-start: #111827;
+  --advisor-end: #1f2937;
+}
+
+body {
+  @apply bg-background text-text-primary antialiased transition-colors duration-300;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Premium smooth bezier transition curve for mobile sliding drawer panel */
+.transition-drawer {
+  transition: transform 380ms cubic-bezier(0.16, 1, 0.3, 1);
+}

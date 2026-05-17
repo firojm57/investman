@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -17,5 +17,5 @@ public class UserProfileVO {
     private String lastName;
     private String email;
     private String mobile;
-    private List<AddressVO> addressVOS;
+    private Set<AddressVO> addressVOS;
 }

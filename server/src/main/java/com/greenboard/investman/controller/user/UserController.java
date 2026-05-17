@@ -2,9 +2,10 @@ package com.greenboard.investman.controller.user;
 
 import com.greenboard.investman.service.user.UserProfileService;
 import com.greenboard.investman.service.user.UserService;
-import com.greenboard.investman.vo.restapi.StatusVO;
+import com.greenboard.investman.vo.common.StatusVO;
 import com.greenboard.investman.vo.user.UserProfileVO;
 import com.greenboard.investman.vo.user.UserVO;
+import com.greenboard.investman.vo.user.request.UserLoginRequestVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,10 +27,9 @@ public class UserController {
         return ResponseEntity.ok(userProfileService.getUserProfileByUserId(userId));
     }
 
-    @GetMapping("/login")
-    public ResponseEntity<StatusVO> getLoginStatus(@RequestParam("userId") String userId,
-                                                   @RequestParam("password") String password) {
-        return ResponseEntity.ok(userService.getLoginStatus(userId, password));
+    @PostMapping("/login")
+    public ResponseEntity<StatusVO> getLoginStatus(@RequestBody UserLoginRequestVO userVO) {
+        return ResponseEntity.ok(userService.getLoginStatus(userVO.getUserId(), userVO.getPassword()));
     }
 
     @PostMapping("/create")

@@ -7,7 +7,7 @@ import com.greenboard.investman.vo.user.AddressVO;
 import com.greenboard.investman.vo.user.UserProfileVO;
 import com.greenboard.investman.vo.user.UserVO;
 
-import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class UserModelConvertor {
@@ -18,9 +18,9 @@ public class UserModelConvertor {
             UserProfile userProfile = new UserProfile(userProfileVO.getFirstName(), userProfileVO.getMiddleName(),
                     userProfileVO.getLastName(), userProfileVO.getEmail(),
                     userProfileVO.getMobile(), user);
-            List<AddressVO> addressVOS = userProfileVO.getAddressVOS();
+            Set<AddressVO> addressVOS = userProfileVO.getAddressVOS();
             if (addressVOS != null && !addressVOS.isEmpty()) {
-                List<Address> addresses = addressVOS.stream().map(addressVO -> {
+                Set<Address> addresses = addressVOS.stream().map(addressVO -> {
                     Address address = new Address(userProfile);
                     address.setLine1(addressVO.getLine1());
                     address.setLine2(addressVO.getLine2());
@@ -29,7 +29,7 @@ public class UserModelConvertor {
                     address.setCountry(addressVO.getCountry());
                     address.setPostalCode(addressVO.getPostalCode());
                     return address;
-                }).collect(Collectors.toList());
+                }).collect(Collectors.toSet());
                 userProfile.setAddresses(addresses);
             }
             user.setUserProfile(userProfile);
@@ -46,7 +46,7 @@ public class UserModelConvertor {
                             .map(address -> new AddressVO(address.getLine1(), address.getLine2(),
                                     address.getCity(), address.getState(), address.getCountry(),
                                     address.getPostalCode()))
-                            .collect(Collectors.toList()));
+                            .collect(Collectors.toSet()));
         }
         return profileVO;
     }
