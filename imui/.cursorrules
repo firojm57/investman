@@ -1,0 +1,72 @@
+# Mio Wealth - AI & Model Development Guidelines (.cursorrules)
+
+This file defines the engineering principles, design tokens, coding standards, and architectural guidelines for Mio Wealth (Investman UI). Any AI model or human developer modifying this repository MUST strictly follow these rules to guarantee absolute consistency, performance, and premium quality.
+
+---
+
+## 1. Architecture & Clean Code Philosophy
+*   **Separation of Concerns**: Keep component logic completely decoupled. HTML templates (`*.html`) drive structure, TypeScript classes (`*.ts`) manage reactive states, and Tailwind/PostCSS classes drive style.
+*   **0% Dead Code Policy**: Never commit unused styles, imports, dead methods, commented-out code, or unused assets. Proactively run optimizations on assets and stylesheets to keep compiled bundles small.
+*   **Localization First**: Avoid hardcoded text strings in HTML templates. Use the `@ngx-translate/core` pipe (e.g., `{{ 'NAV.OVERVIEW' | translate }}`) and maintain clean translation dictionaries inside `src/assets/i18n/en.json`.
+*   **Reactive State Management**: Rely on Angular’s robust reactive signals (`signal()`) for driving state transitions, menu overlays, active tab highlights, and theme states cleanly across components.
+*   **No Deprecated Code/APIs**: Strictly avoid using deprecated APIs, obsolete lifecycle hooks, legacy syntax, or deprecated external libraries. When upgrading frameworks or dependencies (e.g., from Angular 17 to 21), ensure all imports and usage conform to the newest, stable standard conventions (e.g., modern signal-based APIs, new control flow syntax like `@if` / `@for`, and modern standalone component patterns).
+
+---
+
+## 2. Typography & Unified Inheritance
+*   **Single Point of Truth**: All typography styling and fonts MUST inherit globally from the `body` tag defined in `src/styles.css`.
+*   **No Inline Font Classes**: Never use `font-sans` or other explicit font-family classes inside individual HTML component templates. This prevents fragmenting text styles and keeps the markup dry and maintainable.
+*   **Consistent Hierarchy**:
+    *   Page Titles / Headings: Use `font-bold` for primary section titles to establish perfect title consistency.
+    *   Descriptions / Sub-labels: Use `font-medium` or `font-semibold` with secondary text colors (`text-text-secondary`).
+
+---
+
+## 3. High-Fidelity UI & Premium Aesthetics
+*   **Rich Aesthetics**: Visuals must feel modern and premium. Avoid generic plain colors. Use tailored, cohesive, and soft color tokens defined inside the CSS theme.
+*   **Glassmorphism & Blurs**: Utilize modern glassmorphism (e.g., `bg-card/85 backdrop-blur-md`) for headers, modal sheets, and side drawers.
+*   **Micro-Animations & Hover States**: Enhance user feedback with smooth CSS transitions (`transition-all duration-300`) and soft hover/active scales (`hover:scale-102` or circular active button backdrops).
+*   **High-Performance SVG Sprites**: Never load heavy font icon libraries (like Boxicons, FontAwesome). Use vector `<svg><use href="assets/icons.svg#icon-name"></use></svg>` paths referencing the high-performance sprite sheet at `src/assets/icons.svg`.
+
+---
+
+## 4. Mobile-First Responsive Breakpoints
+*   **Strict Four-Device Support**: Always use clean, responsive CSS rules for exactly **four device types** using these tailwind-standard breakpoints:
+    1.  **Mobile Viewports (`< 768px`)**:
+        *   All main vertical sidebars are completely hidden.
+        *   Show the responsive hamburger button (`icon-menu`) in the header.
+        *   Render a sliding mobile drawer menu that slides in smoothly from the left when clicking the hamburger.
+        *   The drawer features a dark blur backdrop overlay; clicking the backdrop closes the menu automatically.
+        *   Dashboard action buttons stack or align in a clean `grid grid-cols-3` layout with `whitespace-nowrap` to prevent awkward text wrapping on narrow displays.
+    2.  **Tablet Viewports (`768px - 1024px` / `md` breakpoint)**:
+        *   Statically render the slim vertical sidebar on the left.
+        *   *Never* shift the navigation bar to the bottom of the screen.
+        *   Ensure active tab styling and coloring perfectly matches the medium/large layouts.
+    3.  **Medium Viewports (`1024px - 1280px` / `lg` breakpoint)**:
+        *   Left slim vertical sidebar layout.
+    4.  **Large Viewports (`>= 1280px` / `xl` breakpoint)**:
+        *   Left slim vertical sidebar layout.
+
+---
+
+## 5. Testing & Quality Gates
+*   **100% Stability Guarantee**: All Angular component, router, and service spec files MUST compile and execute successfully.
+*   **Pre-push Testing**: Always verify local unit test health using:
+    ```bash
+    npm run test -- --watch=false
+    ```
+*   **Production Build Checks**: Prior to pushing code, confirm compiler soundness and optimal bundle generation using:
+    ```bash
+    npm run build
+    ```
+
+---
+
+## 6. AI Agent Command Execution & Auto-Run Permissions
+*   **Non-Destructive Safe Commands**: Standard `npm` and Angular CLI commands that perform read-only, testing, or building tasks are fully classified as **Safe to Auto-Run** without requiring manual user approval, provided they do not delete code, modify configuration files, or reset state destructively.
+*   **Pre-Approved Command List**:
+    *   `npm run test` (including single-run flags like `--watch=false`)
+    *   `npm run build` / `ng build`
+    *   `npm run lint` / `ng lint`
+*   **Windows Terminal Standard**: For maximum compatibility and zero terminal hanging on Windows platforms, prioritize executing terminal commands using the Command Prompt shell environment: `cmd /c <command>` (rather than default PowerShell or bash execution).
+

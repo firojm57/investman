@@ -1,0 +1,85 @@
+<!-- 1. Left Vertical Slim Sidebar (Visible statically on Tablet, Medium, and Large views: md and up) -->
+<aside
+  class="hidden md:flex flex-col items-center justify-center py-4 w-full h-full border-r border-border bg-card transition-colors duration-300">
+  <!-- Tight list spacing to keep all 7 elements perfectly within vertical viewport bounds -->
+  <div class="flex flex-col space-y-2.5 w-full items-center">
+    @for (item of navItems; track item.tab) {
+    <button (click)="selectTab(item.tab)"
+      class="group flex flex-col items-center space-y-0.5 w-full py-0.5 text-center cursor-pointer relative">
+      <!-- Proportioned active/inactive highlight circles -->
+      <div [class]="getDesktopIconClass(item.tab)"
+        class="w-9.5 h-9.5 rounded-full flex items-center justify-center transition-all duration-300">
+        <svg class="w-5 h-5">
+          <use [attr.href]="'assets/icons.svg#' + item.icon"></use>
+        </svg>
+      </div>
+
+      <!-- Clear, semi-bold text label -->
+      <span [class.text-text-primary]="isActive(item.tab)" [class.text-text-secondary]="!isActive(item.tab)"
+        class="font-semibold text-[11px] tracking-tight transition-colors duration-200">
+        {{ item.translationKey | translate }}
+      </span>
+    </button>
+    }
+  </div>
+</aside>
+
+<!-- 2. Mobile Sidebar Sliding Drawer Overlay (only visible on Mobile (< 768px) when active) -->
+<!-- 2. Mobile Sidebar Sliding Drawer Overlay (only visible on Mobile (< 768px) when active) -->
+<div 
+  class="md:hidden fixed inset-0 z-50 flex transition-all duration-300"
+  [class.pointer-events-none]="!dashboardService.mobileMenuOpen()"
+  [class.invisible]="!dashboardService.mobileMenuOpen()"
+>
+  <!-- Backdrop pure glassmorphic blur overlay (no dark gray tint) -->
+  <div 
+    (click)="dashboardService.closeMobileMenu()"
+    class="fixed inset-0 backdrop-blur-md transition-all duration-300"
+    [class.opacity-0]="!dashboardService.mobileMenuOpen()"
+    [class.opacity-100]="dashboardService.mobileMenuOpen()"
+  ></div>
+
+  <!-- Sliding Panel (Slides in from the left) -->
+  <aside
+    class="relative flex flex-col w-64 h-full bg-card border-r border-border p-5 shadow-2xl transition-drawer"
+    [class.-translate-x-full]="!dashboardService.mobileMenuOpen()"
+    [class.translate-x-0]="dashboardService.mobileMenuOpen()"
+  >
+    <!-- Drawer Header (Brand logo and name + Close button) -->
+    <div class="flex items-center justify-between pb-5 border-b border-border/60 mb-5">
+      <div class="flex items-center space-x-2.5">
+        <div
+          class="w-8.5 h-8.5 bg-accent-secondary rounded-lg flex items-center justify-center text-white shadow-sm shadow-accent-secondary/35">
+          <svg class="w-5 h-5">
+            <use href="assets/icons.svg#icon-logo"></use>
+          </svg>
+        </div>
+        <span class="font-extrabold text-base tracking-tight text-text-primary">Mio<span class="font-semibold"> Wealth</span></span>
+      </div>
+      <button (click)="dashboardService.closeMobileMenu()"
+        class="w-8 h-8 rounded-full flex items-center justify-center bg-background hover:bg-border/30 text-text-secondary hover:text-text-primary transition-all cursor-pointer">
+        <svg class="w-4 h-4">
+          <use href="assets/icons.svg#icon-close"></use>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Drawer Navigation List -->
+    <div class="flex-1 flex flex-col space-y-2 overflow-y-auto">
+      @for (item of navItems; track item.tab) {
+      <button (click)="selectTab(item.tab); dashboardService.closeMobileMenu()"
+        class="flex items-center space-x-3.5 w-full py-2.5 px-4.5 rounded-2xl transition-all duration-300 cursor-pointer"
+        [class.bg-text-primary]="isActive(item.tab)" [class.text-card]="isActive(item.tab)"
+        [class.text-text-secondary]="!isActive(item.tab)" [class.hover:bg-background]="!isActive(item.tab)"
+        [class.hover:text-text-primary]="!isActive(item.tab)">
+        <svg class="w-5 h-5">
+          <use [attr.href]="'assets/icons.svg#' + item.icon"></use>
+        </svg>
+        <span class="font-semibold text-xs tracking-wide">
+          {{ item.translationKey | translate }}
+        </span>
+      </button>
+      }
+    </div>
+  </aside>
+</div>

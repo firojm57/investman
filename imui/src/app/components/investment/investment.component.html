@@ -1,0 +1,106 @@
+<div class="space-y-6 md:space-y-8 animate-fade-in pb-16 sm:pb-24 lg:pb-8">
+  <!-- Page Header -->
+  <div class="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0 border-b border-border/40 pb-5">
+    <div>
+      <h1 class="text-3xl font-bold tracking-tight text-text-primary">{{ 'NAV.INVESTMENTS' | translate }}</h1>
+      <p class="text-sm font-medium text-text-secondary mt-1">Track and manage your asset distributions and returns.</p>
+    </div>
+
+    <!-- Actions -->
+    <div class="flex items-center space-x-2.5">
+      <button class="flex items-center space-x-2 px-4 py-2 bg-card hover:bg-background border border-border rounded-full font-medium text-xs text-text-primary shadow-sm cursor-pointer transition-colors duration-300">
+        <svg class="w-4 h-4 text-text-secondary"><use href="assets/icons.svg#icon-export"></use></svg>
+        <span>{{ 'DASHBOARD.EXPORT' | translate }}</span>
+      </button>
+      <button class="flex items-center space-x-2 px-5 py-2 bg-accent-primary hover:bg-accent-primary/90 text-card rounded-full font-semibold text-xs shadow-md shadow-accent-primary/10 cursor-pointer transition-colors duration-300">
+        <svg class="w-4 h-4"><use href="assets/icons.svg#icon-plus"></use></svg>
+        <span>Add Transaction</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Summary Card -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+    <!-- Value -->
+    <div class="p-6 bg-card border border-border rounded-3xl shadow-sm">
+      <span class="text-xs font-semibold text-text-secondary uppercase tracking-wider">Portfolio Value</span>
+      <div class="text-3xl font-extrabold text-text-primary tracking-tight mt-2.5">$120,151</div>
+      <div class="flex items-center space-x-1.5 mt-2">
+        <span class="px-2 py-0.5 rounded-full bg-feedback-success/10 text-feedback-success text-xs font-semibold flex items-center space-x-0.5">
+          <svg class="w-2.5 h-2.5"><use href="assets/icons.svg#icon-arrow-up-right"></use></svg>
+          <span>+6.4%</span>
+        </span>
+        <span class="text-xs font-medium text-text-secondary">All-Time Yield</span>
+      </div>
+    </div>
+
+    <!-- Cost Basis -->
+    <div class="p-6 bg-card border border-border rounded-3xl shadow-sm">
+      <span class="text-xs font-semibold text-text-secondary uppercase tracking-wider">Total Invested</span>
+      <div class="text-3xl font-extrabold text-text-primary tracking-tight mt-2.5">$112,890</div>
+      <div class="text-xs font-medium text-text-secondary mt-3">Initial capital cost basis</div>
+    </div>
+
+    <!-- Cash Balance -->
+    <div class="p-6 bg-card border border-border rounded-3xl shadow-sm">
+      <span class="text-xs font-semibold text-text-secondary uppercase tracking-wider">Uninvested Cash</span>
+      <div class="text-3xl font-extrabold text-text-primary tracking-tight mt-2.5">$7,261</div>
+      <div class="text-xs font-medium text-text-secondary mt-3">Ready to be deployed</div>
+    </div>
+  </div>
+
+  <!-- Holdings Table (WOW premium style) -->
+  <div class="bg-card border border-border rounded-3xl overflow-hidden shadow-sm">
+    <div class="px-6 py-5 border-b border-border/40 flex items-center justify-between">
+      <h3 class="font-bold text-text-primary uppercase tracking-wider text-sm">Asset Holdings</h3>
+      <button class="text-xs font-semibold text-accent-secondary hover:underline cursor-pointer flex items-center space-x-0.5">
+        <span>Refresh Feed</span>
+      </button>
+    </div>
+
+    <!-- Responsive Scroll Wrapper -->
+    <div class="overflow-x-auto">
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr class="border-b border-border/20 text-xs font-bold text-text-secondary uppercase tracking-wider bg-background/50">
+            <th class="px-6 py-4">Asset</th>
+            <th class="px-6 py-4">Allocation</th>
+            <th class="px-6 py-4">Price</th>
+            <th class="px-6 py-4">Shares</th>
+            <th class="px-6 py-4">Current Value</th>
+            <th class="px-6 py-4 text-right">Return (YTD)</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border/20 text-xs font-semibold text-text-primary">
+          @for (hold of holdings; track hold.symbol) {
+            <tr class="hover:bg-background/25 transition-colors duration-200">
+              <td class="px-6 py-4.5 flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-full bg-accent-secondary/10 text-accent-secondary flex items-center justify-center font-bold text-xs">
+                  {{ hold.symbol[0] }}
+                </div>
+                <div>
+                  <div class="font-bold text-text-primary">{{ hold.name }}</div>
+                  <div class="text-[10px] text-text-secondary font-medium">{{ hold.symbol }}</div>
+                </div>
+              </td>
+              <td class="px-6 py-4.5">
+                <div class="flex items-center space-x-2">
+                  <span class="font-bold">{{ hold.allocation }}</span>
+                  <div class="w-16 h-1.5 bg-background rounded-full overflow-hidden hidden sm:block">
+                    <div class="h-full bg-accent-secondary rounded-full" [style.width]="hold.allocation"></div>
+                  </div>
+                </div>
+              </td>
+              <td class="px-6 py-4.5">{{ hold.price }}</td>
+              <td class="px-6 py-4.5">{{ hold.shares }}</td>
+              <td class="px-6 py-4.5 font-bold">{{ hold.value }}</td>
+              <td class="px-6 py-4.5 text-right font-bold" [ngClass]="hold.up ? 'text-feedback-success' : 'text-feedback-danger'">
+                {{ hold.return }}
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
